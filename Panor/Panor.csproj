@@ -32,6 +32,12 @@
     <EmbeddedResource Include="Pages\Core\Main.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Core\Menu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Test.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -40,6 +46,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\Core\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Core\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

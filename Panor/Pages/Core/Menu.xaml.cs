@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Panor.Pages.Core
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Main : MasterDetailPage
+    public partial class Menu : ContentPage
     {
-        public Main()
+        public Menu()
         {
             InitializeComponent();
-
         }
     }
 }

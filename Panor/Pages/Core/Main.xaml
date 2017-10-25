@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="clr-namespace:Panor.Pages.Core;"
+    xmlns:pages="clr-namespace:Panor.Pages;"
     x:Class="Panor.Pages.Core.Main"
+    MasterBehavior="Popover"
     >
-	<ContentPage.Content>
-        <Label Text="text" />
-	</ContentPage.Content>
-</ContentPage>
+	<MasterDetailPage.Master>
+        <core:Menu />
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <pages:Test />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
