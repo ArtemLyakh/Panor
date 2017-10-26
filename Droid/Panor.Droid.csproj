@@ -132,9 +132,21 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_shopping_cart.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_shopping_cart.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_shopping_cart.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_shopping_cart.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_shopping_cart.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\start_page_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\start_page_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\start_page_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\start_page_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\start_page_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dependencies\" />
+    <Folder Include="Resources\drawable-mdpi\" />
+    <Folder Include="Resources\drawable-xxxhdpi\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.18342\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.18342\build\netstandard1.0\Xamarin.Forms.targets')" />

@@ -10,6 +10,7 @@ namespace Panor.Pages
         public Test()
         {
             InitializeComponent();
+
         }
     }
 }

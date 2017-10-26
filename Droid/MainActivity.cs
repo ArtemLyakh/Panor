@@ -24,5 +24,6 @@ namespace Panor.Droid
 
             LoadApplication(new App());
         }
+
     }
 }
