@@ -43,6 +43,8 @@ namespace Panor
         {
             InitializeComponent();
 
+            var ignore = new FFImageLoading.Transformations.CircleTransformation();
+
             MainPage = new Pages.Core.Main();
         }
 

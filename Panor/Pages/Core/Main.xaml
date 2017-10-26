@@ -10,7 +10,7 @@
         <core:Menu />
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
-        <NavigationPage>
+        <NavigationPage BarBackgroundColor="{StaticResource mainColor}" BarTextColor="White">
             <x:Arguments>
                 <pages:Test />
             </x:Arguments>

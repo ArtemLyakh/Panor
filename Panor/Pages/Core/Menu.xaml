@@ -6,8 +6,9 @@
     Title="Меню"
     >
 	<ContentPage.Content>
-        <StackLayout>
-            <views:AuthBlock />
+        <StackLayout Spacing="0">
+            <views:AuthBlock IsVisible="false" />
+            <views:LoggedBlock Name="Александр Друздь" Email="email@gmail.com" />
         </StackLayout>
 
 	</ContentPage.Content>

@@ -118,6 +118,9 @@
     <Reference Include="FFImageLoading.Forms.Droid">
       <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.2.21\lib\MonoAndroid10\FFImageLoading.Forms.Droid.dll</HintPath>
     </Reference>
+    <Reference Include="FFImageLoading.Transformations">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Transformations.2.2.21\lib\MonoAndroid10\FFImageLoading.Transformations.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Panor\Panor.csproj">
@@ -159,6 +162,8 @@
     <AndroidResource Include="Resources\drawable-xhdpi\login_block_enter.png" />
     <AndroidResource Include="Resources\drawable-hdpi\login_block_enter.png" />
     <AndroidResource Include="Resources\drawable-mdpi\login_block_enter.png" />
+    <AndroidResource Include="Resources\drawable\druzd.png" />
+    <AndroidResource Include="Resources\drawable\login_bg.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dependencies\" />
