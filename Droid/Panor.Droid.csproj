@@ -142,6 +142,11 @@
     <AndroidResource Include="Resources\drawable-xhdpi\start_page_icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\start_page_icon.png" />
     <AndroidResource Include="Resources\drawable-mdpi\start_page_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\login_block_enter.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\login_block_enter.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\login_block_enter.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\login_block_enter.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\login_block_enter.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dependencies\" />

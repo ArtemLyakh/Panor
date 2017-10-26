@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<d:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:d="clr-namespace:Panor.Pages;"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="Panor.Pages.Test"
     Title="ПАНОРАМА"
@@ -16,4 +17,4 @@
             <DatePicker />
         </StackLayout>
 	</ContentPage.Content>
-</ContentPage>
+</d:BasePage>
