@@ -6,7 +6,8 @@ namespace Panor.ViewModels
 {
     public abstract class Base : INotifyPropertyChanged
     {
-
+        public virtual void OnAppearing() {}
+        public virtual void OnDisappearing() {}
 
         public event PropertyChangedEventHandler PropertyChanged;
 

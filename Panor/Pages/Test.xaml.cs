@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Panor.Pages
 {
-    public partial class Test : ContentPage
+    public partial class Test : BasePage
     {
         public Test()
         {
