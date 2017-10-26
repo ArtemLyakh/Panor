@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="ViewModels\Base.cs" />
     <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Services\Auth\AuthService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -75,6 +76,8 @@
     <Folder Include="Pages\Core\" />
     <Folder Include="Dependencies\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Auth\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.18342\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.18342\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

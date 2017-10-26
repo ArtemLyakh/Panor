@@ -6,6 +6,8 @@
     x:Class="Panor.App"
     >
 	<Application.Resources>
-		<!-- Application resource dictionary -->
+        <Color x:Key="mainColor">#c41b24</Color>
+        <Color x:Key="secondaryColor">#95161d</Color>
+		
 	</Application.Resources>
 </Application>
