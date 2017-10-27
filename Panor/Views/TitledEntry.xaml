@@ -13,6 +13,7 @@
             <Entry Text="{Binding Text}"
                 TextColor="#616161"
                 FontSize="18"
+                IsPassword="{Binding IsPassword}"
                 />
         </StackLayout>
 	</ContentView.Content>

@@ -35,5 +35,17 @@ namespace Panor.Views
             get => (string)GetValue(TextProperty);
         }
 
+        public static readonly BindableProperty IsPasswordProperty = BindableProperty.Create(
+            nameof(IsPassword),
+            typeof(bool),
+            typeof(TitledEntry),
+            false
+        );
+
+        public bool IsPassword
+        {
+            set => SetValue(IsPasswordProperty, value);
+            get => (bool)GetValue(IsPasswordProperty);
+        }
     }
 }
