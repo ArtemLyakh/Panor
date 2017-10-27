@@ -7,9 +7,27 @@
     >
 	<ContentPage.Content>
         <StackLayout Spacing="0">
-            <views:AuthBlock IsVisible="false" />
+            <views:AuthBlock />
             <views:LoggedBlock Name="Александр Друздь" Email="email@gmail.com" />
+            
+            <ListView SeparatorVisibility="None"
+                HasUnevenRows="true"
+                ItemsSource="{Binding Items}"
+                VerticalOptions="End"
+                >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <views:MenuCell Image="{Binding Image}"
+                            Text="{Binding Text}"
+                            Number="{Binding Number}"
+                            Command="{Binding Command}"
+                            />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
+
+
 
 	</ContentPage.Content>
 </ContentPage>

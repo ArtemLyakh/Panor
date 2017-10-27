@@ -14,8 +14,7 @@ namespace Panor.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             FFImageLoading.Forms.Touch.CachedImageRenderer.Init();
-
-
+          
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

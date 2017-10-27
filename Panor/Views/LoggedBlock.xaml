@@ -4,12 +4,11 @@
     xmlns:ffi="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:ffitr="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
     x:Class="Panor.Views.LoggedBlock"
-
     HeightRequest="200"
+    MinimumHeightRequest="200"
     >
 	<ContentView.Content>
-        <AbsoluteLayout>
-            
+        <AbsoluteLayout>           
             <Image Source="login_bg"
                 Aspect="AspectFill"
                 AbsoluteLayout.LayoutFlags="All"

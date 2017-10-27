@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Panor.Views.MenuCell"
+    >
+	<StackLayout Orientation="Horizontal"
+        HeightRequest="60"
+        >
+        <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding Command}" />
+        </StackLayout.GestureRecognizers>
+        <Image Source="{Binding Image}"
+            Aspect="AspectFit"
+            HeightRequest="35" 
+            WidthRequest="35"
+            HorizontalOptions="Start"
+            VerticalOptions="Center"
+            Margin="15, 0, 0, 0"
+            />            
+        <Label Text="{Binding Text}"
+            TextColor="Black"
+            FontSize="14"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Center"
+            Margin="20, 0, 0, 0"
+            />
+        <Frame BackgroundColor="{StaticResource mainColor}"
+            Padding="0"
+            CornerRadius="10"
+            HeightRequest="20"
+            WidthRequest="20"
+            HorizontalOptions="End"
+            VerticalOptions="Center"
+            HasShadow="false"
+            Margin="0, 0, 15, 0"
+            IsVisible="true"
+            >
+            <Frame.Triggers>
+                <DataTrigger TargetType="Frame"
+                    Binding="{Binding Number}"
+                    Value="0"
+                    >
+                    <Setter Property="IsVisible" Value="false" />
+                </DataTrigger>
+            </Frame.Triggers>
+            <Label Text="{Binding Number}"
+                FontSize="10"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"
+                TextColor="White"
+                />
+        </Frame>
+    </StackLayout>
+</ViewCell>

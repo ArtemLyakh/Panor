@@ -44,6 +44,9 @@
     <EmbeddedResource Include="Views\LoggedBlock.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\MenuCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -68,6 +71,10 @@
     <Compile Include="Views\LoggedBlock.xaml.cs">
       <DependentUpon>LoggedBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MenuCell.xaml.cs">
+      <DependentUpon>MenuCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuListView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
