@@ -1,14 +1,22 @@
 ﻿using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Panor
 {
     public partial class App : Application
     {
         public static new App Current => (App)Application.Current;
 
-        private Pages.Core.Menu Menu => (Pages.Core.Menu)((MasterDetailPage)MainPage).Master;
-        private NavigationPage NavPage => (NavigationPage)((MasterDetailPage)MainPage).Detail;
+		private Pages.Core.Menu Menu => (Pages.Core.Menu)((MasterDetailPage)MainPage).Master;
+		private NavigationPage NavPage => (NavigationPage)((MasterDetailPage)MainPage).Detail;
+
+        public void CloseMenu()
+        {
+            ((MasterDetailPage)MainPage).IsPresented = false;
+        }
+
 
         private Navigation _navigation;
         public Navigation Navigation

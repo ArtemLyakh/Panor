@@ -7,13 +7,14 @@
     >
 	<ContentPage.Content>
         <StackLayout Spacing="0">
-            <views:AuthBlock />
+            <views:AuthBlock Clicked="Handle_Clicked" Command="{Binding LoginCommand}" />
             <views:LoggedBlock Name="Александр Друздь" Email="email@gmail.com" />
             
             <ListView SeparatorVisibility="None"
                 HasUnevenRows="true"
                 ItemsSource="{Binding Items}"
                 VerticalOptions="End"
+                ItemSelected="Handle_ItemSelected"
                 >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -26,8 +27,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-
-
-
 	</ContentPage.Content>
 </ContentPage>

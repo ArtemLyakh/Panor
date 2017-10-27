@@ -5,9 +5,9 @@ namespace Panor.Pages
 {
     public class BasePage : ContentPage
     {
-        protected ViewModels.Base Model
+        protected ViewModels.BaseViewModel Model
         {
-            get => (ViewModels.Base)BindingContext;
+            get => (ViewModels.BaseViewModel)BindingContext;
             set => BindingContext = value;
         }
 

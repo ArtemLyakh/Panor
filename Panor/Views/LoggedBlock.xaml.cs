@@ -19,11 +19,10 @@ namespace Panor.Views
             typeof(string),
             typeof(LoggedBlock)
         );
-
         public string Name
         {
-            set { SetValue(NameProperty, value); }
-            get { return (string)GetValue(NameProperty); }
+            set => SetValue(NameProperty, value);
+            get => (string)GetValue(NameProperty);
         }
 
         public static readonly BindableProperty EmailProperty = BindableProperty.Create(
@@ -31,11 +30,10 @@ namespace Panor.Views
             typeof(string),
             typeof(LoggedBlock)
         );
-
         public string Email
         {
-            set { SetValue(EmailProperty, value); }
-            get { return (string)GetValue(EmailProperty); }
+            set => SetValue(EmailProperty, value);
+            get => (string)GetValue(EmailProperty);
         }
 
         public static readonly BindableProperty ImageProperty = BindableProperty.Create(
@@ -43,11 +41,10 @@ namespace Panor.Views
             typeof(ImageSource),
             typeof(LoggedBlock)
         );
-
         public ImageSource Image
         {
-            set { SetValue(ImageProperty, value); }
-            get { return (ImageSource)GetValue(ImageProperty); }
+            set => SetValue(ImageProperty, value);
+            get => (ImageSource)GetValue(ImageProperty);
         }
 
 

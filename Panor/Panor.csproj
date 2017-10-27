@@ -47,6 +47,12 @@
     <EmbeddedResource Include="Views\MenuCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Auth\Login.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TitledEntry.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -62,7 +68,7 @@
     <Compile Include="Pages\Test.xaml.cs">
       <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\Base.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Services\Auth\AuthService.cs" />
     <Compile Include="Views\AuthBlock.xaml.cs">
@@ -74,7 +80,14 @@
     <Compile Include="Views\MenuCell.xaml.cs">
       <DependentUpon>MenuCell.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MenuListView.cs" />
+    <Compile Include="Pages\Auth\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Core\MenuPageViewModel.cs" />
+    <Compile Include="Views\TitledEntry.xaml.cs">
+      <DependentUpon>TitledEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BorderButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -110,6 +123,8 @@
     <Folder Include="Services\" />
     <Folder Include="Services\Auth\" />
     <Folder Include="Views\" />
+    <Folder Include="Pages\Auth\" />
+    <Folder Include="ViewModels\Core\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.18342\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.18342\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

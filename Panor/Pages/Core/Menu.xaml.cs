@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Windows.Input;
+
 using Xamarin.Forms;
 
 namespace Panor.Pages.Core
@@ -10,90 +9,17 @@ namespace Panor.Pages.Core
         public Menu()
         {
             InitializeComponent();
-            BindingContext = this;
+            BindingContext = new ViewModels.Core.MenuPageViewModel();
         }
 
-        public class MenuItem 
+        void Handle_Clicked(object sender, System.EventArgs e)
         {
-            public ImageSource Image { get; set; }
-            public string Text { get; set; }
-            public int Number { get; set; }
-            public ICommand Command { get; set; }
+            App.Current.CloseMenu();
         }
 
-        public List<MenuItem> Items { get; } = new List<MenuItem>()
+        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
-            new MenuItem()
-            {
-                Image = ImageSource.FromFile("druzd"),
-                Text = "Каталог1",
-                Number = 2,
-                Command = new Command(() => {
-                    var q = 1;
-                })
-            },
-            new MenuItem()
-            {
-                Image = ImageSource.FromFile("druzd"),
-                Text = "Каталог2",
-                Command = new Command(() => {
-                    var q = 1;
-                })
-            },
-            new MenuItem()
-            {
-                Image = ImageSource.FromFile("druzd"),
-                Text = "Каталог3",
-                Number = 10,
-                Command = new Command(() => {
-                    var q = 1;
-                })
-            },
-            new MenuItem()
-            {
-                Image = ImageSource.FromFile("druzd"),
-                Text = "Каталог3",
-                Number = 10,
-                Command = new Command(() => {
-                    var q = 1;
-                })
-            },
-            new MenuItem()
-            {
-                Image = ImageSource.FromFile("druzd"),
-                Text = "Каталог3",
-                Number = 10,
-                Command = new Command(() => {
-                    var q = 1;
-                })
-            },
-            new MenuItem()
-            {
-                Image = ImageSource.FromFile("druzd"),
-                Text = "Каталог3",
-                Number = 10,
-                Command = new Command(() => {
-                    var q = 1;
-                })
-            },
-            new MenuItem()
-            {
-                Image = ImageSource.FromFile("druzd"),
-                Text = "Каталог3",
-                Number = 10,
-                Command = new Command(() => {
-                    var q = 1;
-                })
-            },
-            new MenuItem()
-            {
-                Image = ImageSource.FromFile("druzd"),
-                Text = "Каталог3",
-                Number = 10,
-                Command = new Command(() => {
-                    var q = 1;
-                })
-            },
-        };
+            App.Current.CloseMenu();
+        }
     }
 }

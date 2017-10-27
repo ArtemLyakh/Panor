@@ -17,24 +17,27 @@ namespace Panor.Views
             InitialBGCoor = this.BackgroundColor;
         }
 
-        public static readonly BindableProperty ClickCommandProperty = BindableProperty.Create(
-            nameof(ClickCommand),
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create(
+            nameof(Command),
             typeof(ICommand),
             typeof(AuthBlock)
         );
-
-        public ICommand ClickCommand
+        public ICommand Command
         {
-            set { SetValue(ClickCommandProperty, value); }
-            get { return (ICommand)GetValue(ClickCommandProperty); }
+            set => SetValue(CommandProperty, value);
+            get => (ICommand)GetValue(CommandProperty);
         }
+
+        public event EventHandler Clicked;
 
         private void Handle_Tapped(object sender, System.EventArgs e)
         {
             Animation();
 
-            if (ClickCommand != null && ClickCommand.CanExecute(null)) 
-                ClickCommand.Execute(null);
+            Clicked?.Invoke(this, null);
+
+            if (Command != null && Command.CanExecute(null)) 
+                Command.Execute(null);
         }
 
         private void Animation()

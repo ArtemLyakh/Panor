@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Panor.Views;"
+    x:Class="Panor.Pages.Auth.Login"
+    Title="Вход"
+    >
+	<ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10, 60, 10, 10" Spacing="10">
+                <views:TitledEntry Title="Логин/Email" Text="{Binding Login}" />
+                <views:TitledEntry Title="Пароль" Text="{Binding Password}" />
+                <Label Text="Забыли пароль?"
+                    TextColor="{StaticResource mainColor}"
+                    FontSize="12"
+                    HorizontalTextAlignment="End"
+                    Margin="0, 0, 0, 30"
+                    />
+                <views:BorderButton Text="ВОЙТИ"
+                    HeightRequest="60"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource mainColor}"
+                    HorizontalOptions="FillAndExpand"
+                    Radius="1"
+                    />
+
+                <views:BorderButton Text="ЗАРЕГИСТРИРОВАТЬСЯ"
+                    HeightRequest="60"
+                    BackgroundColor="White"
+                    BorderColor="Red"
+                    BorderWidth="1"
+                    Radius="1"
+                    TextColor="{StaticResource mainColor}"
+                    />
+
+                
+            </StackLayout>
+        </ScrollView>
+	</ContentPage.Content>
+</ContentPage>

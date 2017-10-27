@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace Panor.ViewModels
 {
-    public abstract class Base : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         public virtual void OnAppearing() {}
         public virtual void OnDisappearing() {}

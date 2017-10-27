@@ -20,8 +20,8 @@ namespace Panor.Views
         );
         public ImageSource Image
         {
-            set { SetValue(ImageProperty, value); }
-            get { return (ImageSource)GetValue(ImageProperty); }
+            set => SetValue(ImageProperty, value);
+            get => (ImageSource)GetValue(ImageProperty);
         }
 
         public static readonly BindableProperty TextProperty = BindableProperty.Create(
@@ -31,8 +31,8 @@ namespace Panor.Views
         );
         public string Text
         {
-            set { SetValue(TextProperty, value); }
-            get { return (string)GetValue(TextProperty); }
+            set => SetValue(TextProperty, value);
+            get => (string)GetValue(TextProperty);
         }
 
         public static readonly BindableProperty NumberProperty = BindableProperty.Create(
@@ -43,8 +43,8 @@ namespace Panor.Views
         );
         public int Number
         {
-            set { SetValue(NumberProperty, value); }
-            get { return (int)GetValue(NumberProperty); }
+            set => SetValue(NumberProperty, value);
+            get => (int)GetValue(NumberProperty);
         }
 
         public static readonly BindableProperty CommandProperty = BindableProperty.Create(
@@ -54,8 +54,8 @@ namespace Panor.Views
         );
         public ICommand Command
         {
-            set { SetValue(CommandProperty, value); }
-            get { return (ICommand)GetValue(CommandProperty); }
+            set => SetValue(CommandProperty, value);
+            get => (ICommand)GetValue(CommandProperty);
         }
 
     }
