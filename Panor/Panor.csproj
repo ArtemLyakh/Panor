@@ -53,6 +53,9 @@
     <EmbeddedResource Include="Views\TitledEntry.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Loader.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -88,6 +91,9 @@
       <DependentUpon>TitledEntry.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BorderButton.cs" />
+    <Compile Include="Views\Loader.xaml.cs">
+      <DependentUpon>Loader.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

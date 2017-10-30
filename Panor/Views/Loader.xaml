@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Panor.Views.Loader"
+
+    BackgroundColor="#A0000000"
+    IsVisible="{Binding IsActive}"
+    >
+	<ContentView.Content>
+        <ActivityIndicator IsRunning="true" 
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Color="White" 
+            >
+            <ActivityIndicator.Scale>
+                <OnPlatform x:TypeArguments="x:Double" iOS="2" Android="1" />
+            </ActivityIndicator.Scale>
+        </ActivityIndicator>
+	</ContentView.Content>
+</ContentView>

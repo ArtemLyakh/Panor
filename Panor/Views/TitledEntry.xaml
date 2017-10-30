@@ -14,7 +14,11 @@
                 TextColor="#616161"
                 FontSize="18"
                 IsPassword="{Binding IsPassword}"
-                />
+                >
+                <Entry.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double" iOS="30" Android="-1" />
+                </Entry.HeightRequest>
+            </Entry>
         </StackLayout>
 	</ContentView.Content>
 </ContentView>
