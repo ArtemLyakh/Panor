@@ -15,7 +15,7 @@ namespace Panor.Views
         public static readonly BindableProperty IsActiveProperty = BindableProperty.Create(
             nameof(Command),
             typeof(bool),
-            typeof(AuthBlock),
+            typeof(Loader),
             false
         );
         public bool IsActive
