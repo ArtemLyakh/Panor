@@ -9,7 +9,7 @@ namespace Panor
     {
         public static new App Current => (App)Application.Current;
 
-		private Pages.Core.Menu Menu => (Pages.Core.Menu)((MasterDetailPage)MainPage).Master;
+		private Pages.Core.MenuPage Menu => (Pages.Core.MenuPage)((MasterDetailPage)MainPage).Master;
 		private NavigationPage NavPage => (NavigationPage)((MasterDetailPage)MainPage).Detail;
 
         public void CloseMenu()
@@ -53,7 +53,7 @@ namespace Panor
 
             var ignore = new FFImageLoading.Transformations.CircleTransformation();
 
-            MainPage = new Pages.Core.Main();
+            MainPage = new Pages.Core.MainPage();
         }
 
         protected override void OnStart()

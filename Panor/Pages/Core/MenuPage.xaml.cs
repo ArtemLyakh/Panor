@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace Panor.Pages.Core
 {
-    public partial class Menu : ContentPage
+    public partial class MenuPage : ContentPage
     {
-        public Menu()
+        public MenuPage()
         {
             InitializeComponent();
             BindingContext = new ViewModels.Core.MenuPageViewModel();

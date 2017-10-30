@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace Panor.Pages
 {
-    public partial class Start : BasePage
+    public partial class StartPage : BasePage
     {
-        public Start()
+        public StartPage()
         {
             InitializeComponent();
         }

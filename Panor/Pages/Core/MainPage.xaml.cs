@@ -6,10 +6,9 @@ using Xamarin.Forms.Xaml;
 
 namespace Panor.Pages.Core
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Main : MasterDetailPage
+    public partial class MainPage : MasterDetailPage
     {
-        public Main()
+        public MainPage()
         {
             InitializeComponent();
 
