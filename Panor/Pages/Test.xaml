@@ -10,11 +10,17 @@
         <ToolbarItem Name="Корзина" Icon="ic_shopping_cart" />
     </ContentPage.ToolbarItems>
 	<ContentPage.Content>
-        <StackLayout>
-            <Entry HorizontalOptions="Fill"
-                TextColor="Black"
-                />
-            <DatePicker />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <BoxView HeightRequest="500" BackgroundColor="Aqua" />
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal">
+                        <BoxView WidthRequest="250" BackgroundColor="Fuchsia" />
+                        <BoxView WidthRequest="250" BackgroundColor="Olive" />
+                    </StackLayout>
+                </ScrollView>
+                <BoxView HeightRequest="500" BackgroundColor="Maroon" />
+            </StackLayout>
+        </ScrollView>
 	</ContentPage.Content>
 </d:BasePage>
