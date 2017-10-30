@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace Panor.ViewModels.Auth
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginPageViewModel : BaseViewModel
     {
-        public LoginViewModel()
+        public LoginPageViewModel()
         {
         }
 

@@ -106,12 +106,12 @@
     <Compile Include="Pages\Auth\RegisterPage.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\Auth\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Auth\LoginPageViewModel.cs" />
     <Compile Include="Views\CheckBox.xaml.cs">
       <DependentUpon>CheckBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ExtendedLabel.cs" />
-    <Compile Include="ViewModels\Auth\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Auth\RegisterPageViewModel.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Pages\StartPage.xaml.cs">
       <DependentUpon>Start.xaml</DependentUpon>

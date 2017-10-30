@@ -10,7 +10,7 @@ namespace Panor.Pages.Auth
         public LoginPage() : base()
         {
             InitializeComponent();
-            Model = new ViewModels.Auth.LoginViewModel();
+            Model = new ViewModels.Auth.LoginPageViewModel();
         }
     }
 }

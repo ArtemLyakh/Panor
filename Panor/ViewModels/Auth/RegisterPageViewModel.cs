@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Panor.ViewModels.Auth
 {
-    public class RegisterViewModel : BaseViewModel
+    public class RegisterPageViewModel : BaseViewModel
     {
         private string _name;
         public string Name
