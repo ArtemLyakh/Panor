@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace Panor.Pages.Auth
 {
-    public partial class Login : BasePage
+    public partial class LoginPage : BasePage
     {
-        public Login() : base()
+        public LoginPage() : base()
         {
             InitializeComponent();
             Model = new ViewModels.Auth.LoginViewModel();

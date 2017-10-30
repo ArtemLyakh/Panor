@@ -47,7 +47,7 @@
     <EmbeddedResource Include="Views\MenuCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\Auth\Login.xaml">
+    <EmbeddedResource Include="Pages\Auth\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TitledEntry.xaml">
@@ -56,7 +56,7 @@
     <EmbeddedResource Include="Views\Loader.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\Auth\Register.xaml">
+    <EmbeddedResource Include="Pages\Auth\RegisterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CheckBox.xaml">
@@ -92,7 +92,7 @@
     <Compile Include="Views\MenuCell.xaml.cs">
       <DependentUpon>MenuCell.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Auth\Login.xaml.cs">
+    <Compile Include="Pages\Auth\LoginPage.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Core\MenuPageViewModel.cs" />
@@ -103,7 +103,7 @@
     <Compile Include="Views\Loader.xaml.cs">
       <DependentUpon>Loader.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Auth\Register.xaml.cs">
+    <Compile Include="Pages\Auth\RegisterPage.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Auth\LoginViewModel.cs" />

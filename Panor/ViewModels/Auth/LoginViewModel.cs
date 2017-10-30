@@ -31,7 +31,7 @@ namespace Panor.ViewModels.Auth
 
         public ICommand RegisterCommand => new Command(async () =>
         {
-            await App.Current.Navigation.PushRoot(new Pages.Auth.Register());
+            await App.Current.Navigation.PushRoot(new Pages.Auth.RegisterPage());
         });
     }
 }

@@ -46,7 +46,7 @@ namespace Panor.ViewModels.Auth
 
         public ICommand LoginCommand => new Command(async () =>
         {
-            await App.Current.Navigation.PushRoot(new Pages.Auth.Login());
+            await App.Current.Navigation.PushRoot(new Pages.Auth.LoginPage());
         });
 
     }
