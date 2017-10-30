@@ -12,7 +12,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage BarBackgroundColor="{StaticResource mainColor}" BarTextColor="White">
             <x:Arguments>
-                <pages:Test />
+                <pages:Start />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>
