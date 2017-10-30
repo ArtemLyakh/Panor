@@ -9,6 +9,14 @@ namespace Panor.ViewModels
         public virtual void OnAppearing() {}
         public virtual void OnDisappearing() {}
 
+        private bool _isLoading;
+        public bool IsLoading
+        {
+            get => _isLoading;
+            set => SetProperty(ref _isLoading, value);
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void SetProperty<T>(ref T storage, T value, Action callback = null, [CallerMemberName] string propertyName = null)

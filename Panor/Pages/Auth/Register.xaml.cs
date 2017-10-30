@@ -5,12 +5,11 @@ using Xamarin.Forms;
 
 namespace Panor.Pages.Auth
 {
-    public partial class Login : BasePage
+    public partial class Register : ContentPage
     {
-        public Login() : base()
+        public Register()
         {
             InitializeComponent();
-            Model = new ViewModels.Auth.LoginViewModel();
         }
     }
 }
