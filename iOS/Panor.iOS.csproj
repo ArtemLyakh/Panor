@@ -115,6 +115,9 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.4.0.38779\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="ToastIOS">
+      <HintPath>Lib\ToastIOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Panor\Panor.csproj">
@@ -144,6 +147,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\ExtendedLabelRenderer.cs" />
     <Compile Include="Dependencies\ICryptImplementation.cs" />
+    <Compile Include="Dependencies\IToastImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_shopping_cart%402x.png" />

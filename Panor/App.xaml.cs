@@ -57,6 +57,18 @@ namespace Panor
             }
         }
 
+        private Services.Toast.Toast _toastService;
+        public Services.Toast.Toast ToastService
+        {
+            get 
+            {
+                if (_toastService == null)
+                {
+                    _toastService = new Services.Toast.Toast();
+                }
+                return _toastService;
+            }
+        }
 
 
         public App()

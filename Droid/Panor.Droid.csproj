@@ -138,6 +138,7 @@
     <Compile Include="Renderers\BorderButtonRenderer.cs" />
     <Compile Include="Renderers\ExtendedLabelRenderer.cs" />
     <Compile Include="Dependencies\ICryptImplementation.cs" />
+    <Compile Include="Dependencies\IToastImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

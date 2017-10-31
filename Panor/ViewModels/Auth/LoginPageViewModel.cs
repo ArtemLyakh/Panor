@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -35,10 +36,22 @@ namespace Panor.ViewModels.Auth
 
         public ICommand LoginCommand => new Command(async () =>
         {
+            var errors = Model.GetErrors().ToList();
 
+            if (errors.Count > 0)
+            {
+                App.Current.ToastService.Show(string.Join(Environment.NewLine, errors));
+                return;
+            }
 
-            var cts = new System.Threading.CancellationTokenSource();
-            //var res = await App.Current.WebClient.SendAsync(System.Net.Http.HttpMethod.Get, new Uri("http://panor.ru/api/qqq/"), cts.Token);
+            try
+            {
+                var res = await App.Current.WebClient.SendAsync("POST", new Uri(Config.Uri.LoginUrl), GetNewToken(), "");
+            }
+            catch
+            {
+                
+            }
 
             var q = 1;
         });

@@ -119,6 +119,8 @@
     <Compile Include="Services\WebClient\WebClient.cs" />
     <Compile Include="Dependencies\ICrypt.cs" />
     <Compile Include="Models\Auth\Login.cs" />
+    <Compile Include="Dependencies\IToast.cs" />
+    <Compile Include="Services\Toast\Toast.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading">
@@ -166,6 +168,7 @@
     <Folder Include="Services\WebClient\" />
     <Folder Include="Models\" />
     <Folder Include="Models\Auth\" />
+    <Folder Include="Services\Toast\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
