@@ -2,9 +2,9 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Panor.Views.Loader"
-
+    x:Name="element"
     BackgroundColor="#A0000000"
-    IsVisible="{Binding IsActive}"
+    IsVisible="{Binding Source={x:Reference element}, Path=IsActive}"
     >
 	<ContentView.Content>
         <ActivityIndicator IsRunning="true" 

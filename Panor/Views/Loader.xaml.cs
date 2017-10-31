@@ -9,11 +9,10 @@ namespace Panor.Views
         public Loader()
         {
             InitializeComponent();
-            BindingContext = this;
         }
 
         public static readonly BindableProperty IsActiveProperty = BindableProperty.Create(
-            nameof(Command),
+            nameof(IsActive),
             typeof(bool),
             typeof(Loader),
             false

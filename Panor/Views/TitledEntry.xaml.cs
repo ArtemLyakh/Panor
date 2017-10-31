@@ -9,7 +9,6 @@ namespace Panor.Views
         public TitledEntry()
         {
             InitializeComponent();
-            BindingContext = this;
         }
 
         public static readonly BindableProperty TitleProperty = BindableProperty.Create(
@@ -26,7 +25,8 @@ namespace Panor.Views
         public static readonly BindableProperty TextProperty = BindableProperty.Create(
             nameof(Text),
             typeof(string),
-            typeof(TitledEntry)
+            typeof(TitledEntry),
+            defaultBindingMode: BindingMode.TwoWay
         );
 
         public string Text

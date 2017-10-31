@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -44,16 +45,53 @@ namespace Panor.ViewModels.Auth
                 return;
             }
 
+            (int Code, string Response) res;
+            IsLoading = true;
             try
             {
-                var res = await App.Current.WebClient.SendAsync("POST", new Uri(Config.Uri.LoginUrl), GetNewToken(), "");
+                res = await App.Current.WebClient.SendAsync("POST", new Uri(Config.Uri.LoginUrl), GetNewToken(), Model.GetJson());
+            }
+            catch (OperationCanceledException)
+            {
+                return;
+            }
+            catch (TimeoutException)
+            {
+                App.Current.ToastService.Show("Превышен интервал запроса");
+                return;
             }
             catch
             {
-                
+                App.Current.ToastService.Show("Ошибка");
+                return;
+            }
+            finally
+            {
+                IsLoading = false;
             }
 
-            var q = 1;
+            switch (res.Code)
+            {
+                case 200:
+                    App.Current.AuthService.Authorize(Email, Password);
+                    return;
+                case 401:
+                    var error = Json.Error.ParseJson(res.Response);
+                    if (error == null)
+                    {
+                        App.Current.ToastService.Show("Ошибка ответа сервера");
+                        return;
+                    }
+                    else 
+                    {
+                        App.Current.ToastService.Show(error.message);
+                        return;
+                    }
+                default: 
+                    App.Current.ToastService.Show("Ошибка ответа сервера");
+                    return;
+            }
+
         });
 
         public ICommand RegisterCommand => new Command(async () =>

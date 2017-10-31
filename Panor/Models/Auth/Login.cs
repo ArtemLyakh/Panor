@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Xamarin.Forms;
+using Newtonsoft.Json;
 
 namespace Panor.Models.Auth
 {
@@ -24,7 +26,7 @@ namespace Panor.Models.Auth
             {
                 yield return "Email не заполнен";
             }
-            else if (!Regex.IsMatch(this.Email, EmailRegex, RegexOptions.IgnoreCase))
+            else if (!Regex.IsMatch(Email, EmailRegex, RegexOptions.IgnoreCase))
             {
                 yield return "Некорректный email адрес";
             }
@@ -35,6 +37,14 @@ namespace Panor.Models.Auth
             }
         }
 
+        public string GetJson()
+        {
+            var json = new Json.Auth.Login();
+            json.login = Email;
+            json.password = DependencyService.Get<Dependencies.ICrypt>().Encrypt(Config.AuthPublicKey, Password);
+
+            return JsonConvert.SerializeObject(json);
+        }
 
     }
 }

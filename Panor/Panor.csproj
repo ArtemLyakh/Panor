@@ -121,6 +121,8 @@
     <Compile Include="Models\Auth\Login.cs" />
     <Compile Include="Dependencies\IToast.cs" />
     <Compile Include="Services\Toast\Toast.cs" />
+    <Compile Include="Json\Auth\Login.cs" />
+    <Compile Include="Json\Error.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading">
@@ -150,6 +152,9 @@
     <Reference Include="System.ValueTuple">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -169,6 +174,8 @@
     <Folder Include="Models\" />
     <Folder Include="Models\Auth\" />
     <Folder Include="Services\Toast\" />
+    <Folder Include="Json\" />
+    <Folder Include="Json\Auth\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
