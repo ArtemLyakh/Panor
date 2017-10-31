@@ -16,13 +16,9 @@ namespace Panor.Services.Auth
         private string Login { get; set; }
         private string Password { get; set; }
 
-        public string SecureAuth
-        {
-            get 
-            {
-				throw new NotImplementedException();                
-            }
-        }
+        public string SecureAuth => IsLogged 
+            ? $"{Login} {DependencyService.Get<Dependencies.ICrypt>().Encrypt(Config.AuthPublicKey, Password)}" 
+            : null;
 
         public bool IsLogged => 
             !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password);

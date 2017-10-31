@@ -24,9 +24,12 @@ namespace Panor.ViewModels.Auth
             set => SetProperty(ref _password, value);
         }
 
-        public ICommand LoginCommand => new Command(() =>
+        public ICommand LoginCommand => new Command(async () =>
         {
-            throw new NotImplementedException();
+            var cts = new System.Threading.CancellationTokenSource();
+            var res = await App.Current.WebClient.SendAsync(System.Net.Http.HttpMethod.Get, new Uri("http://panor.ru/api/qqq/"), cts.Token);
+
+            var q = 1;
         });
 
         public ICommand RegisterCommand => new Command(async () =>

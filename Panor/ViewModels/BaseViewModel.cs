@@ -19,13 +19,13 @@ namespace Panor.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void SetProperty<T>(ref T storage, T value, Action callback = null, [CallerMemberName] string propertyName = null)
+        protected void SetProperty<T>(ref T storage, T value, Action<T> callback = null, [CallerMemberName] string propertyName = null)
         {
             if (object.Equals(storage, value)) return;
 
             storage = value;
             OnPropertyChanged(propertyName);
-            callback?.Invoke();
+            callback?.Invoke(value);
         }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null) =>

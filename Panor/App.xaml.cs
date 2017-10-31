@@ -44,6 +44,18 @@ namespace Panor
             }
         }
 
+        private Services.WebClient.WebClient _webClient;
+        public Services.WebClient.WebClient WebClient
+        {
+            get 
+            {
+                if (_webClient == null)
+                {
+                    _webClient = new Services.WebClient.WebClient();
+                }
+                return _webClient;
+            }
+        }
 
 
 
