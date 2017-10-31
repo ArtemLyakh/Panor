@@ -14,9 +14,9 @@ namespace Panor.Services.WebClient
         {
         }
 
-        public async Task<(int Code, string Response)> SendAsync(HttpMethod method, Uri uri, CancellationToken cancellationToken, string content = null, int timeout = 20)
+        public async Task<(int Code, string Response)> SendAsync(string method, Uri uri, CancellationToken cancellationToken, string content = null, int timeout = 20)
         {
-            var request = new HttpRequestMessage(method, uri);
+            var request = new HttpRequestMessage(new HttpMethod(method), uri);
 
             if (App.Current.AuthService.IsLogged)
             {
