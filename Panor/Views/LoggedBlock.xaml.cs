@@ -9,9 +9,8 @@ namespace Panor.Views
         public LoggedBlock()
         {
             InitializeComponent();
-            Image = ImageSource.FromFile("druzd");
 
-            BindingContext = this;
+            Image = ImageSource.FromFile("druzd");
         }
 
         public static readonly BindableProperty NameProperty = BindableProperty.Create(

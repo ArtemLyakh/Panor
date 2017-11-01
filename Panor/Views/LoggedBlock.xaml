@@ -4,6 +4,7 @@
     xmlns:ffi="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:ffitr="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
     x:Class="Panor.Views.LoggedBlock"
+    x:Name="element"
     HeightRequest="200"
     MinimumHeightRequest="200"
     >
@@ -30,7 +31,7 @@
                             </Style>
                         </ResourceDictionary>
                     </StackLayout.Resources>
-                    <ffi:CachedImage Source="{Binding Image}"
+                    <ffi:CachedImage Source="{Binding Source={x:Reference element}, Path=Image}"
                         HorizontalOptions="Start"
                         HeightRequest="80"
                         WidthRequest="80"
@@ -41,8 +42,8 @@
                             <ffitr:CircleTransformation />
                         </ffi:CachedImage.Transformations>
                     </ffi:CachedImage>
-                    <Label Text="{Binding Name}" FontAttributes="Bold" />
-                    <Label Text="{Binding Email}" />
+                    <Label Text="{Binding Source={x:Reference element}, Path=Name}" FontAttributes="Bold" />
+                    <Label Text="{Binding Source={x:Reference element}, Path=Email}" />
                 </StackLayout>
             </StackLayout>
         </AbsoluteLayout>
