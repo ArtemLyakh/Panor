@@ -2,21 +2,20 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Panor.Views.TitledEntry"
-    x:Name="elementView"
+    x:Name="element"
     >
 	<ContentView.Content>
         <StackLayout Spacing="5">
-            <Label BindingContext="{x:Reference elementView}"
-                Text="{Binding Title}"
+            <Label Text="{Binding Source={x:Reference element}, Path=Title}"
                 TextColor="#616161"
                 FontSize="12"
                 Margin="5, 0, 5, 0"
                 />
-            <Entry BindingContext="{x:Reference elementView}"
-                Text="{Binding Text}"
+            <Entry Text="{Binding Source={x:Reference element}, Path=Text}"
                 TextColor="#616161"
                 FontSize="18"
-                IsPassword="{Binding IsPassword}"
+                IsPassword="{Binding Source={x:Reference element}, Path=IsPassword}"
+                Keyboard="{Binding Source={x:Reference element}, Path=Keyboard}"
                 >
                 <Entry.HeightRequest>
                     <OnPlatform x:TypeArguments="x:Double" iOS="30" Android="-1" />

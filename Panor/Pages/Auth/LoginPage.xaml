@@ -12,8 +12,14 @@
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                 >
                 <StackLayout Padding="10, 60, 10, 10" Spacing="10">
-                    <views:TitledEntry Title="Email" Text="{Binding Email}" />
-                    <views:TitledEntry Title="Пароль" Text="{Binding Password}" IsPassword="true" />
+                    <views:TitledEntry Title="Email"
+                        Text="{Binding Email}"
+                        Keyboard="Email"
+                        />
+                    <views:TitledEntry Title="Пароль"
+                        Text="{Binding Password}"
+                        IsPassword="true"
+                        />
                     <Label Text="Забыли пароль?"
                         TextColor="{StaticResource mainColor}"
                         FontSize="12"

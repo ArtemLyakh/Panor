@@ -28,7 +28,6 @@ namespace Panor.Views
             typeof(TitledEntry),
             defaultBindingMode: BindingMode.TwoWay
         );
-
         public string Text
         {
             set => SetValue(TextProperty, value);
@@ -41,11 +40,22 @@ namespace Panor.Views
             typeof(TitledEntry),
             false
         );
-
         public bool IsPassword
         {
             set => SetValue(IsPasswordProperty, value);
             get => (bool)GetValue(IsPasswordProperty);
+        }
+
+        public static readonly BindableProperty KeyboardProperty = BindableProperty.Create(
+            nameof(Keyboard),
+            typeof(Keyboard),
+            typeof(TitledEntry),
+            default(Keyboard)
+        );
+        public Keyboard Keyboard
+        {
+            set => SetValue(KeyboardProperty, value);
+            get => (Keyboard)GetValue(KeyboardProperty);
         }
     }
 }

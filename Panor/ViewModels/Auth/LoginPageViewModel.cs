@@ -74,6 +74,7 @@ namespace Panor.ViewModels.Auth
             {
                 case 200:
                     App.Current.AuthService.Authorize(Email, Password);
+                    await App.Current.Navigation.PopToRoot();
                     return;
                 case 401:
                     var error = Json.Error.ParseJson(res.Response);
