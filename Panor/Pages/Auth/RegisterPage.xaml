@@ -13,7 +13,7 @@
                 >
                 <StackLayout Padding="10, 40, 10, 10" Spacing="10">
                     <views:TitledEntry Title="Ваше имя" Text="{Binding Name}" />
-                    <views:TitledEntry Title="Email" Text="{Binding Email}" />
+                    <views:TitledEntry Title="Email" Text="{Binding Email}" Keyboard="Email" />
                     <views:TitledEntry Title="Пароль" Text="{Binding Password}" IsPassword="true" />
                     <views:TitledEntry Title="Подтверждение пароля" Text="{Binding Confirm}" IsPassword="true" />
 
@@ -21,7 +21,7 @@
                         HorizontalOptions="Fill"
                         Margin="0, 20, 0, 20"
                         >
-                        <views:CheckBox IsChecked="true"
+                        <views:CheckBox IsChecked="{Binding PersonalData}"
                             HorizontalOptions="Start"
                             VerticalOptions="Start"
                             />
@@ -65,7 +65,7 @@
                         />
                 </StackLayout>
             </ScrollView>
-            <views:Loader IsActive="false"
+            <views:Loader IsActive="{Binding IsLoading}"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                 />

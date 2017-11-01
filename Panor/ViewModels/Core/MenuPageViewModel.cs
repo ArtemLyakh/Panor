@@ -8,6 +8,30 @@ namespace Panor.ViewModels.Core
 {
     public class MenuPageViewModel : BaseViewModel
     {
+        public MenuPageViewModel()
+        {
+            IsLogged = App.Current.AuthService.IsLogged;
+            MessagingCenter.Subscribe<Services.Auth.AuthService>(this, "Auth", auth => 
+            {
+                IsLogged = auth.IsLogged;
+            });
+        }
+
+        private bool _isLogged;
+        public bool IsLogged
+        {
+            get => _isLogged;
+            set => SetProperty(ref _isLogged, value);
+        }
+
+
+
+
+
+        public ICommand LoginCommand => new Command(async () =>
+            await App.Current.Navigation.PushRoot(new Pages.Auth.LoginPage()));
+
+
         public class MenuItem
         {
             public ImageSource Image { get; set; }
@@ -15,15 +39,6 @@ namespace Panor.ViewModels.Core
             public int Number { get; set; }
             public ICommand Command { get; set; }
         }
-
-        public ICommand LoginCommand => new Command(async () =>
-            await App.Current.Navigation.PushRoot(new Pages.Auth.LoginPage()));
-
-
-
-
-
-
 
         public List<MenuItem> Items { get; } = new List<MenuItem>()
         {
@@ -92,10 +107,9 @@ namespace Panor.ViewModels.Core
             new MenuItem()
             {
                 Image = ImageSource.FromFile("druzd"),
-                Text = "Каталог3",
-                Number = 10,
+                Text = "Выход",
                 Command = new Command(() => {
-                    var q = 1;
+                    App.Current.AuthService.Logout();
                 })
             },
         };

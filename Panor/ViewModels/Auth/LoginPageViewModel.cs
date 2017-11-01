@@ -41,16 +41,40 @@ namespace Panor.ViewModels.Auth
             });
         }
 
-        public ICommand LoginCommand => new Command(async () =>
+        public ICommand RegisterCommand => new Command(async () =>
+        {
+            await App.Current.Navigation.PushRoot(new Pages.Auth.RegisterPage());
+        });
+
+        public ICommand LoginCommand => new Command(Login);
+
+        private async void Login()
+        {
+            try
+            {
+                ErrorCheck();
+                var res = await Send();
+                Process(res);
+            }
+            catch 
+            {
+                return;
+            }
+        }
+
+        private void ErrorCheck()
         {
             var errors = Model.GetErrors().ToList();
 
             if (errors.Count > 0)
             {
                 App.Current.ToastService.Show(string.Join(Environment.NewLine, errors));
-                return;
+                throw new Exception();
             }
+        }
 
+        private async Task<(int Code, string Response)> Send()
+        {
             (int Code, string Response) res;
             IsLoading = true;
             try
@@ -59,17 +83,17 @@ namespace Panor.ViewModels.Auth
             }
             catch (OperationCanceledException)
             {
-                return;
+                throw new Exception();
             }
             catch (TimeoutException)
             {
                 App.Current.ToastService.Show("Превышен интервал запроса");
-                return;
+                throw new Exception();
             }
             catch
             {
                 App.Current.ToastService.Show("Ошибка");
-                return;
+                throw new Exception();
             }
             finally
             {
@@ -77,34 +101,33 @@ namespace Panor.ViewModels.Auth
                 ClearToken();
             }
 
+            return res;
+        }
+
+        private void Process((int Code, string Response) res)
+        {
             switch (res.Code)
             {
                 case 200:
                     App.Current.AuthService.Authorize(Email, Password);
-                    await App.Current.Navigation.PopToRoot();
+                    App.Current.Navigation.PopToRoot();
                     return;
-                case 401:
+                case 400: case 401:
                     var error = Json.Error.ParseJson(res.Response);
                     if (error == null)
                     {
                         App.Current.ToastService.Show("Ошибка ответа сервера");
                         return;
                     }
-                    else 
+                    else
                     {
                         App.Current.ToastService.Show(error.message);
                         return;
                     }
-                default: 
+                default:
                     App.Current.ToastService.Show("Ошибка ответа сервера");
                     return;
             }
-
-        });
-
-        public ICommand RegisterCommand => new Command(async () =>
-        {
-            await App.Current.Navigation.PushRoot(new Pages.Auth.RegisterPage());
-        });
+        }
     }
 }
