@@ -10,14 +10,14 @@ namespace Panor.Views
         public CheckBox()
         {
             InitializeComponent();
-            BindingContext = this;
         }
 
         public static readonly BindableProperty IsCheckedProperty = BindableProperty.Create(
             nameof(IsChecked),
             typeof(bool),
             typeof(CheckBox),
-            false
+            false,
+            defaultBindingMode: BindingMode.TwoWay
         );
         public bool IsChecked
         {
