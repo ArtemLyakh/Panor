@@ -4,6 +4,7 @@
     xmlns:views="clr-namespace:Panor.Views;"
     xmlns:conv="clr-namespace:Panor.Converters"
     x:Class="Panor.Pages.Core.MenuPage"
+    x:Name="menu"
     Title="Меню"
     >
     <ContentPage.Resources>
@@ -23,10 +24,16 @@
                         Command="{Binding LoginCommand}"
                         IsVisible="{Binding Path=IsLogged, Converter={StaticResource InvertBoolConverter}}"
                         />
-                    <views:LoggedBlock
-                        Name="Александр Друздь"
-                        Email="email@gmail.com"
-                        IsVisible="{Binding IsLogged}"
+                    <!-- BindingContext = LoggedBlockViewModel -->
+                    <views:LoggedBlock x:Name="loggedBlock"
+                        IsVisible="{Binding Source={x:Reference menu}, Path=BindingContext.IsLogged}"
+                        Name="{Binding Name}"
+                        Email="{Binding Email}"
+                        Image="{Binding Image}"
+                        IsRepeatShow="{Binding IsRepeatShow}"
+                        IsContentShow="{Binding IsContentShow}"
+                        IsLoadingShow="{Binding IsLoadingShow}"
+                        RepeatCommand="{Binding RepeatCommand}"
                         />
                 </StackLayout>
             </ListView.Header>

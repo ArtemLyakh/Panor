@@ -15,8 +15,10 @@
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                 />
+            
             <StackLayout AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                IsVisible="{Binding Source={x:Reference element}, Path=IsContentShow}"
                 >
                 <StackLayout VerticalOptions="EndAndExpand"
                     HorizontalOptions="Start"
@@ -46,6 +48,40 @@
                     <Label Text="{Binding Source={x:Reference element}, Path=Email}" />
                 </StackLayout>
             </StackLayout>
+            
+            <StackLayout AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                IsVisible="{Binding Source={x:Reference element}, Path=IsLoadingShow}"
+                >
+                <ActivityIndicator IsRunning="true"
+                    Color="White"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    >
+                    <ActivityIndicator.Scale>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="2" Android="1" />
+                    </ActivityIndicator.Scale>
+                </ActivityIndicator>
+            </StackLayout>
+
+            <StackLayout AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                IsVisible="{Binding Source={x:Reference element}, Path=IsRepeatShow}"
+                >
+                <Label Text="Повторить"
+                    TextColor="White"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontSize="16"
+                    >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={x:Reference element}, Path=RepeatCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            
         </AbsoluteLayout>
 	</ContentView.Content>
 </ContentView>

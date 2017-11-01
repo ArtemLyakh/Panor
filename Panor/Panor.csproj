@@ -126,6 +126,9 @@
     <Compile Include="Converters\InvertBoolConverter.cs" />
     <Compile Include="Models\Auth\Register.cs" />
     <Compile Include="Json\Auth\Register.cs" />
+    <Compile Include="ViewModels\Core\LoggedBlockViewModel.cs" />
+    <Compile Include="Models\Auth\LoggedBlock.cs" />
+    <Compile Include="Json\Auth\Profile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading">

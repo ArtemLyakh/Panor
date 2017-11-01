@@ -8,8 +8,22 @@ namespace Panor.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        public virtual void OnAppearing() {}
-        public virtual void OnDisappearing() {}
+        public List<BaseViewModel> Children { get; } = new List<BaseViewModel>();
+
+        public virtual void OnAppearing()
+        {
+            foreach(var child in Children)
+            {
+                child.OnAppearing();
+            }
+        }
+        public virtual void OnDisappearing() 
+        {
+            foreach (var child in Children)
+            {
+                child.OnDisappearing();
+            }
+        }
 
         private bool _isLoading;
         public bool IsLoading

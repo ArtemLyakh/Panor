@@ -10,6 +10,7 @@ namespace Panor.Pages.Core
         {
             InitializeComponent();
             BindingContext = new ViewModels.Core.MenuPageViewModel();
+            loggedBlock.BindingContext = new ViewModels.Core.LoggedBlockViewModel();
         }
 
         void Handle_Clicked(object sender, System.EventArgs e)

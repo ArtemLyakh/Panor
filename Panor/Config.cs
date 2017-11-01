@@ -15,6 +15,7 @@ namespace Panor
 
             public const string LoginUrl = ApiUrl + "login/";
             public const string RegisterUrl = ApiUrl + "register/";
+            public const string ProfileUrl = ApiUrl + "profile/";
         }
     }
 }
