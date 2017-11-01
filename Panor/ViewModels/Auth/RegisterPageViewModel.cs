@@ -89,6 +89,10 @@ namespace Panor.ViewModels.Auth
                 var res = await Send();
                 Process(res);
             }
+            catch
+            {
+                return;
+            }
             finally
             {
                 IsLoading = false;
