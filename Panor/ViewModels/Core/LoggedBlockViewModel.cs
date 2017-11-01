@@ -84,10 +84,7 @@ namespace Panor.ViewModels.Core
             set => SetProperty(ref _isLoadingShow, value);
         }
 
-        public ICommand RepeatCommand => new Command(() =>
-        {
-            throw new NotImplementedException();
-        });
+        public ICommand RepeatCommand => new Command(Load);
 
         private void HideAll()
         {
