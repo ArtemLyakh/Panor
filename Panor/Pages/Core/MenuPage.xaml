@@ -27,7 +27,7 @@
                     <!-- BindingContext = LoggedBlockViewModel -->
                     <views:LoggedBlock x:Name="loggedBlock"
                         IsVisible="{Binding Source={x:Reference menu}, Path=BindingContext.IsLogged}"
-                        Name="{Binding Name}"
+                        Name="{Binding Fio}"
                         Email="{Binding Email}"
                         Image="{Binding Image}"
                         IsRepeatShow="{Binding IsRepeatShow}"

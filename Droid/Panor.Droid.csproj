@@ -171,6 +171,11 @@
     <AndroidResource Include="Resources\drawable-mdpi\login_block_enter.png" />
     <AndroidResource Include="Resources\drawable\druzd.png" />
     <AndroidResource Include="Resources\drawable\login_bg.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\no_photo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\no_photo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\no_photo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\no_photo.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\no_photo.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dependencies\" />

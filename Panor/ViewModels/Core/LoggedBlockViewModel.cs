@@ -158,7 +158,7 @@ namespace Panor.ViewModels.Core
                 if (Model.Image != null)
                     Image = ImageSource.FromUri(Model.Image);
                 else
-                    Image = null;
+                    Image = ImageSource.FromFile("no_photo");
 
                 Fio = Model.Fio;
                 Email = Model.Email;
