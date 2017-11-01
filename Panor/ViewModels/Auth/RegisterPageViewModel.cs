@@ -82,15 +82,16 @@ namespace Panor.ViewModels.Auth
 
         private async void Register()
         {
+            IsLoading = true;
             try
             {
                 ErrorCheck();
                 var res = await Send();
                 Process(res);
             }
-            catch
+            finally
             {
-                return;
+                IsLoading = false;
             }
         }
 
@@ -108,7 +109,6 @@ namespace Panor.ViewModels.Auth
         private async Task<(int Code, string Response)> Send()
         {
             (int Code, string Response) res;
-            IsLoading = true;
             try
             {
                 res = await App.Current.WebClient.SendAsync("POST", new Uri(Config.Uri.RegisterUrl), GetNewToken(), Model.GetJson());
@@ -129,7 +129,6 @@ namespace Panor.ViewModels.Auth
             }
             finally
             {
-                IsLoading = false;
                 ClearToken();
             }
 
