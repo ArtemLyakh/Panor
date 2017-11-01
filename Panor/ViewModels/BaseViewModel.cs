@@ -18,34 +18,22 @@ namespace Panor.ViewModels
             set => SetProperty(ref _isLoading, value);
         }
 
-        private List<CancellationTokenSource> CancellationTokens = new List<CancellationTokenSource>();
+        private CancellationTokenSource CancellationTokenSource;
 
         protected CancellationToken GetNewToken()
         {
-            var cts = new CancellationTokenSource();
-            CancellationTokens.Add(cts);
-
-            return cts.Token;
+            CancellationTokenSource = new CancellationTokenSource();
+            return CancellationTokenSource.Token;
         }
-        protected void CancelToken(CancellationToken token)
+        protected void CancelToken()
         {
-            var cts = CancellationTokens.Find(i => i.Token == token);
-
-            if (cts != null)
-            {
-                cts.Cancel();
-                CancellationTokens.Remove(cts);
-            }
+            CancellationTokenSource?.Cancel();
+            ClearToken();
         }
-        protected void CancelAll()
+        protected void ClearToken()
         {
-            foreach(var cts in CancellationTokens)
-            {
-                cts.Cancel();
-            }
-            CancellationTokens.Clear();
+            CancellationTokenSource = null;
         }
-
 
 
 

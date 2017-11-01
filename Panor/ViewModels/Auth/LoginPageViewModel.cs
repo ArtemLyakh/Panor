@@ -15,6 +15,12 @@ namespace Panor.ViewModels.Auth
             Model = new Models.Auth.Login();
         }
 
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            CancelToken();
+        }
+
         private string _email;
         public string Email
         {
@@ -68,6 +74,7 @@ namespace Panor.ViewModels.Auth
             finally
             {
                 IsLoading = false;
+                ClearToken();
             }
 
             switch (res.Code)
