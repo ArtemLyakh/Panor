@@ -10,7 +10,6 @@ namespace Panor.Views
         public MenuCell()
         {
             InitializeComponent();
-            BindingContext = this;
         }
 
         public static readonly BindableProperty ImageProperty = BindableProperty.Create(

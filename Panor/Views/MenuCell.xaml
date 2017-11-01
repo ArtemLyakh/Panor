@@ -2,14 +2,15 @@
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Panor.Views.MenuCell"
+    x:Name="element"
     >
 	<StackLayout Orientation="Horizontal"
         HeightRequest="60"
         >
         <StackLayout.GestureRecognizers>
-            <TapGestureRecognizer Command="{Binding Command}" />
+            <TapGestureRecognizer Command="{Binding Source={x:Reference element}, Path=Command}" />
         </StackLayout.GestureRecognizers>
-        <Image Source="{Binding Image}"
+        <Image Source="{Binding Source={x:Reference element}, Path=Image}"
             Aspect="AspectFit"
             HeightRequest="35" 
             WidthRequest="35"
@@ -17,7 +18,7 @@
             VerticalOptions="Center"
             Margin="15, 0, 0, 0"
             />            
-        <Label Text="{Binding Text}"
+        <Label Text="{Binding Source={x:Reference element}, Path=Text}"
             TextColor="Black"
             FontSize="14"
             HorizontalOptions="FillAndExpand"
@@ -37,13 +38,13 @@
             >
             <Frame.Triggers>
                 <DataTrigger TargetType="Frame"
-                    Binding="{Binding Number}"
+                    Binding="{Binding Source={x:Reference element}, Path=Number}"
                     Value="0"
                     >
                     <Setter Property="IsVisible" Value="false" />
                 </DataTrigger>
             </Frame.Triggers>
-            <Label Text="{Binding Number}"
+            <Label Text="{Binding Source={x:Reference element}, Path=Number}"
                 FontSize="10"
                 VerticalTextAlignment="Center"
                 HorizontalTextAlignment="Center"
