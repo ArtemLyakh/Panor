@@ -63,6 +63,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\LatestNumbers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NumberPreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -124,6 +132,15 @@
     <Compile Include="Pages\Start\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LatestNumbers.xaml.cs">
+      <DependentUpon>LatestNumbers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Start\StartPageViewModel.cs" />
+    <Compile Include="ViewModels\Start\LatestNumbersViewModel.cs" />
+    <Compile Include="Views\NumberPreview.xaml.cs">
+      <DependentUpon>NumberPreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Numbers\NumberPreview.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading">
@@ -179,6 +196,8 @@
     <Folder Include="Json\Auth\" />
     <Folder Include="Converters\" />
     <Folder Include="Pages\Start\" />
+    <Folder Include="ViewModels\Start\" />
+    <Folder Include="Models\Numbers\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

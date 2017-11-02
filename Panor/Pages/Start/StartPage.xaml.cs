@@ -10,6 +10,17 @@ namespace Panor.Pages.Start
         public StartPage()
         {
             InitializeComponent();
+
+			var latestNumbersModel = new ViewModels.Start.LatestNumbersViewModel();
+            var model = new ViewModels.Start.StartPageViewModel()
+            {
+                Children = {
+                    latestNumbersModel
+                }
+            };
+
+            Model = model;
+            latestNumbers.BindingContext = latestNumbersModel;
         }
     }
 }

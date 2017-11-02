@@ -9,6 +9,7 @@
         <ResourceDictionary>
             <Color x:Key="mainColor">#c41b24</Color>
             <Color x:Key="secondaryColor">#95161d</Color>
+            <Color x:Key="bgColor">#e8eaeb</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

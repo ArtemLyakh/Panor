@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Panor.Views.LatestNumbers"
+    x:Name="element"
+
+    HeightRequest="280"
+    Padding="15"
+    >
+	<Frame.Content>
+        <AbsoluteLayout>
+            <Grid RowSpacing="0"
+                ColumnSpacing="0"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0"
+                    Text="Последние номера"
+                    TextColor="Black"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    VerticalTextAlignment="Start"
+                    HorizontalTextAlignment="Start"
+                    />
+                <Label Grid.Row="0" Grid.Column="1"
+                    Text="ЕЩЕ"
+                    TextColor="{StaticResource mainColor}"
+                    FontSize="14"
+                    VerticalTextAlignment="Start"
+                    HorizontalTextAlignment="End"
+                    >
+                </Label>
+                <ScrollView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    >
+                    <StackLayout x:Name="ElementsStack" Orientation="Horizontal" Spacing="10" />
+                </ScrollView>
+            </Grid>
+            <StackLayout AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                IsVisible="false"
+                >
+
+            </StackLayout>
+            <StackLayout AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                IsVisible="false"
+                >
+
+            </StackLayout>
+        </AbsoluteLayout>
+	</Frame.Content>
+</Frame>

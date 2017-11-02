@@ -5,7 +5,20 @@
     xmlns:views="clr-namespace:Panor.Views;"
     x:Class="Panor.Pages.Start.StartPage"
     Title="ПАНОРАМА"
+
+    BackgroundColor="{StaticResource bgColor}"
+    Padding="0, 20"
     >
 	<ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20">
+                <!-- BindingContext = LatestNumbersViewModel -->
+                <views:LatestNumbers x:Name="latestNumbers"
+                    Margin="10, 0" 
+                    Actions="{Binding Actions}"
+                    Numbers="{Binding Numbers}"
+                    />
+            </StackLayout>
+        </ScrollView>
 	</ContentPage.Content>
 </d:BasePage>
