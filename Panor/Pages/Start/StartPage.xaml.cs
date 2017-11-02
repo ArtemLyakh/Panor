@@ -3,14 +3,13 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace Panor.Pages
+namespace Panor.Pages.Start
 {
-    public partial class Test : BasePage
+    public partial class StartPage : BasePage
     {
-        public Test()
+        public StartPage()
         {
             InitializeComponent();
-
         }
     }
 }

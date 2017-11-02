@@ -2,7 +2,7 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:core="clr-namespace:Panor.Pages.Core;"
-    xmlns:pages="clr-namespace:Panor.Pages;"
+    xmlns:pages="clr-namespace:Panor.Pages.Start;"
     x:Class="Panor.Pages.Core.MainPage"
     MasterBehavior="Popover"
     >
