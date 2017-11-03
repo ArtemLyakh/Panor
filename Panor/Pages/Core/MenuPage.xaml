@@ -30,7 +30,7 @@
                         Name="{Binding Fio}"
                         Email="{Binding Email}"
                         Image="{Binding Image}"
-                        IsRepeatShow="{Binding IsRepeatShow}"
+                        IsReloadShow="{Binding IsReloadShow}"
                         IsContentShow="{Binding IsContentShow}"
                         IsLoadingShow="{Binding IsLoadingShow}"
                         RepeatCommand="{Binding RepeatCommand}"

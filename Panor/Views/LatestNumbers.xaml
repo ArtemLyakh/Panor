@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Frame xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Panor.Views;"
     x:Class="Panor.Views.LatestNumbers"
     x:Name="element"
 
@@ -13,6 +14,7 @@
                 ColumnSpacing="0"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                IsVisible="false"
                 >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30" />
@@ -22,6 +24,14 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
+                <Grid.Triggers>
+                    <DataTrigger TargetType="Grid"
+                        Binding="{Binding Source={x:Reference element}, Path=ViewState}"
+                        Value="{x:Static views:LoadingContentViewState.Content}"
+                        >
+                        <Setter Property="IsVisible" Value="true" />
+                    </DataTrigger>
+                </Grid.Triggers> 
                 <Label Grid.Row="0" Grid.Column="0"
                     Text="Последние номера"
                     TextColor="Black"
@@ -44,17 +54,55 @@
                     <StackLayout x:Name="ElementsStack" Orientation="Horizontal" Spacing="10" />
                 </ScrollView>
             </Grid>
+            
             <StackLayout AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                 IsVisible="false"
                 >
-
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout"
+                        Binding="{Binding Source={x:Reference element}, Path=ViewState}"
+                        Value="{x:Static views:LoadingContentViewState.Loading}"
+                        >
+                        <Setter Property="IsVisible" Value="true" />
+                    </DataTrigger>
+                </StackLayout.Triggers>   
+                <ActivityIndicator IsRunning="true"
+                    Color="{StaticResource mainColor}"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    >
+                    <ActivityIndicator.Scale>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="2" Android="1" />
+                    </ActivityIndicator.Scale>
+                </ActivityIndicator>
             </StackLayout>
+            
             <StackLayout AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                 IsVisible="false"
+                BackgroundColor="Blue"
                 >
-
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout"
+                        Binding="{Binding Source={x:Reference element}, Path=ViewState}"
+                        Value="{x:Static views:LoadingContentViewState.Reload}"
+                        >
+                        <Setter Property="IsVisible" Value="true" />
+                    </DataTrigger>
+                </StackLayout.Triggers>
+                <Label Text="Повторить"
+                    TextColor="{StaticResource mainColor}"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontSize="16"
+                    >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={x:Reference element}, Path=ReloadCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
         </AbsoluteLayout>
 	</Frame.Content>

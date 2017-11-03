@@ -72,16 +72,16 @@ namespace Panor.Views
             get => (bool)GetValue(IsContentShowProperty);
         }
 
-        public static readonly BindableProperty IsRepeatShowProperty = BindableProperty.Create(
-            nameof(IsRepeatShow),
+        public static readonly BindableProperty IsReloadShowProperty = BindableProperty.Create(
+            nameof(IsReloadShow),
             typeof(bool),
-            typeof(LoggedBlock),
+            typeof(LatestNumbers),
             false
         );
-        public bool IsRepeatShow
+        public bool IsReloadShow
         {
-            set => SetValue(IsRepeatShowProperty, value);
-            get => (bool)GetValue(IsRepeatShowProperty);
+            set => SetValue(IsReloadShowProperty, value);
+            get => (bool)GetValue(IsReloadShowProperty);
         }
 
         public static readonly BindableProperty RepeatCommandProperty = BindableProperty.Create(

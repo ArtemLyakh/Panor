@@ -17,6 +17,7 @@
                     Margin="10, 0" 
                     Actions="{Binding Actions}"
                     Numbers="{Binding Numbers}"
+                    ViewState="{Binding ViewState}"
                     />
             </StackLayout>
         </ScrollView>

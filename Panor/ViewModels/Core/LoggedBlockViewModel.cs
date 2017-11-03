@@ -63,11 +63,11 @@ namespace Panor.ViewModels.Core
             });
         }
 
-        private bool _isRepeatShow;
-        public bool IsRepeatShow
+        private bool _isReloadShow;
+        public bool IsReloadShow
         {
-            get => _isRepeatShow;
-            set => SetProperty(ref _isRepeatShow, value);
+            get => _isReloadShow;
+            set => SetProperty(ref _isReloadShow, value);
         }
 
         private bool _isContentShow;
@@ -90,7 +90,7 @@ namespace Panor.ViewModels.Core
         {
             IsContentShow = false;
             IsLoadingShow = false;
-            IsRepeatShow = false;
+            IsReloadShow = false;
         }
 
         private async void Load()
@@ -105,7 +105,7 @@ namespace Panor.ViewModels.Core
             }
             catch
             {
-                IsRepeatShow = true;
+                IsReloadShow = true;
             }
             finally
             {
@@ -149,7 +149,7 @@ namespace Panor.ViewModels.Core
         {
             if (success)
             {
-                IsRepeatShow = false;
+                IsReloadShow = false;
                 IsContentShow = true;
 
                 if (Model.Image != null)
@@ -163,7 +163,7 @@ namespace Panor.ViewModels.Core
             else
             {
                 IsContentShow = false;
-                IsRepeatShow = true;
+                IsReloadShow = true;
             }
         }
     }

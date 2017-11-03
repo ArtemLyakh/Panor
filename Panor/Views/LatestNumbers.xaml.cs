@@ -25,14 +25,14 @@ namespace Panor.Views
 
         public static readonly BindableProperty NumbersProperty = BindableProperty.Create(
             nameof(Numbers),
-            typeof(IEnumerable<Models.Numbers.NumberPreview>),
+            typeof(List<Models.Numbers.NumberPreview>),
             typeof(LatestNumbers),
             propertyChanged: OnNumberChanged
         );
-        public IEnumerable<Models.Numbers.NumberPreview> Numbers
+        public List<Models.Numbers.NumberPreview> Numbers
         {
             set => SetValue(NumbersProperty, value);
-            get => (IEnumerable<Models.Numbers.NumberPreview>)GetValue(NumbersProperty);
+            get => (List<Models.Numbers.NumberPreview>)GetValue(NumbersProperty);
         }
 
 
@@ -46,6 +46,19 @@ namespace Panor.Views
             set => SetValue(ActionsProperty, value);
             get => (IEnumerable<(string, ICommand)>)GetValue(ActionsProperty);
         }
+
+        public static readonly BindableProperty ViewStateProperty = BindableProperty.Create(
+            nameof(ViewState),
+            typeof(LoadingContentViewState),
+            typeof(LatestNumbers),
+            default(LoadingContentViewState)
+        );
+        public LoadingContentViewState ViewState
+        {
+            set => SetValue(ViewStateProperty, value);
+            get => (LoadingContentViewState)GetValue(ViewStateProperty);
+        }
+
 
         private static void OnNumberChanged(BindableObject bindable, object oldValue, object newValue)
         {

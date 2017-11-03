@@ -70,6 +70,18 @@ namespace Panor
             }
         }
 
+        private Clients.IApi _api;
+        public Clients.IApi Api
+        {
+            get 
+            {
+                if (_api == null)
+                {
+                    _api = new Clients.MockClient();
+                }
+                return _api;
+            }
+        }
 
         public App()
         {
