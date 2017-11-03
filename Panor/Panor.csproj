@@ -145,6 +145,7 @@
     <Compile Include="Clients\ApiClient.cs" />
     <Compile Include="Clients\MockClient.cs" />
     <Compile Include="Views\LoadingContentViewState.cs" />
+    <Compile Include="Views\Dropdown.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading">

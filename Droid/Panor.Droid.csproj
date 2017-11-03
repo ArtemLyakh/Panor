@@ -139,6 +139,7 @@
     <Compile Include="Renderers\ExtendedLabelRenderer.cs" />
     <Compile Include="Dependencies\ICryptImplementation.cs" />
     <Compile Include="Dependencies\IToastImplementation.cs" />
+    <Compile Include="Renderers\DropdownRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

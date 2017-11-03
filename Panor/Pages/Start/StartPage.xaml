@@ -21,6 +21,13 @@
                     ReloadCommand="{Binding ReloadCommand}"
                     MoreCommand="{Binding MoreCommand}"
                     />
+
+                <views:Dropdown 
+                    BackgroundColor="Fuchsia"
+                    WidthRequest="40"
+                    HeightRequest="20"
+                    HorizontalOptions="Center"
+                    />
             </StackLayout>
         </ScrollView>
 	</ContentPage.Content>
