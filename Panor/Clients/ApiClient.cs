@@ -49,7 +49,7 @@ namespace Panor.Clients
             (int Code, string Response) res;
             try
             {
-				res = await App.Current.WebClient.SendAsync(System.Net.Http.HttpMethod.Post, new Uri(Config.Uri.LoginUrl), token, content);            
+				res = await App.Current.WebClient.SendAsync(HttpMethod.Post, new Uri(Config.Uri.LoginUrl), token, content);            
             }
             catch (OperationCanceledException)
             {
@@ -78,9 +78,38 @@ namespace Panor.Clients
             }
         }
 
-        public Task Register(string content, CancellationToken token)
+        public async Task Register(string content, CancellationToken token)
         {
-            throw new NotImplementedException();
+            (int Code, string Response) res;
+            try
+            {
+                res = await App.Current.WebClient.SendAsync(HttpMethod.Post, new Uri(Config.Uri.RegisterUrl), token, content);
+            }
+            catch (OperationCanceledException)
+            {
+                throw;
+            }
+            catch (TimeoutException)
+            {
+                throw new Exception("Превышен интервал запроса");
+            }
+            catch
+            {
+                throw new Exception("Ошибка запроса");
+            }
+         
+
+            switch (res.Code)
+            {
+                case 200:
+                    return;
+                case 400:
+                case 401:
+                    var error = Json.Error.ParseJson(res.Response);
+                    throw new Exception(error == null ? "Ошибка ответа сервера" : error.message);
+                default:
+                    throw new Exception("Ошибка ответа сервера");
+            }
         }
     }
 }
