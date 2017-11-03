@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Panor.Views;"
     xmlns:ffi="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:ffitr="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
     x:Class="Panor.Views.LoggedBlock"
@@ -18,8 +19,16 @@
             
             <StackLayout AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                IsVisible="{Binding Source={x:Reference element}, Path=IsContentShow}"
+                IsVisible="false"
                 >
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout"
+                        Binding="{Binding Source={x:Reference element}, Path=ViewState}"
+                        Value="{x:Static views:LoadingContentViewState.Content}"
+                        >
+                        <Setter Property="IsVisible" Value="true" />
+                    </DataTrigger>
+                </StackLayout.Triggers>
                 <StackLayout VerticalOptions="EndAndExpand"
                     HorizontalOptions="Start"
                     Padding="15"
@@ -51,8 +60,16 @@
             
             <StackLayout AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                IsVisible="{Binding Source={x:Reference element}, Path=IsLoadingShow}"
+                IsVisible="false"
                 >
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout"
+                        Binding="{Binding Source={x:Reference element}, Path=ViewState}"
+                        Value="{x:Static views:LoadingContentViewState.Loading}"
+                        >
+                        <Setter Property="IsVisible" Value="true" />
+                    </DataTrigger>
+                </StackLayout.Triggers>
                 <ActivityIndicator IsRunning="true"
                     Color="White"
                     VerticalOptions="CenterAndExpand"
@@ -66,8 +83,16 @@
 
             <StackLayout AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                IsVisible="{Binding Source={x:Reference element}, Path=IsRepeatShow}"
+                IsVisible="false"
                 >
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout"
+                        Binding="{Binding Source={x:Reference element}, Path=ViewState}"
+                        Value="{x:Static views:LoadingContentViewState.Reload}"
+                        >
+                        <Setter Property="IsVisible" Value="true" />
+                    </DataTrigger>
+                </StackLayout.Triggers>
                 <Label Text="Повторить"
                     TextColor="White"
                     HorizontalOptions="CenterAndExpand"

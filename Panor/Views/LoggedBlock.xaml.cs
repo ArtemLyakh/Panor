@@ -48,51 +48,27 @@ namespace Panor.Views
             get => (ImageSource)GetValue(ImageProperty);
         }
 
-        public static readonly BindableProperty IsLoadingShowProperty = BindableProperty.Create(
-            nameof(IsLoadingShow),
-            typeof(bool),
-            typeof(LoggedBlock),
-            true
-        );
-        public bool IsLoadingShow
-        {
-            set => SetValue(IsLoadingShowProperty, value);
-            get => (bool)GetValue(IsLoadingShowProperty);
-        }
-
-        public static readonly BindableProperty IsContentShowProperty = BindableProperty.Create(
-            nameof(IsContentShow),
-            typeof(bool),
-            typeof(LoggedBlock),
-            false
-        );
-        public bool IsContentShow 
-        {
-            set => SetValue(IsContentShowProperty, value);
-            get => (bool)GetValue(IsContentShowProperty);
-        }
-
-        public static readonly BindableProperty IsReloadShowProperty = BindableProperty.Create(
-            nameof(IsReloadShow),
-            typeof(bool),
+        public static readonly BindableProperty ViewStateProperty = BindableProperty.Create(
+            nameof(ViewState),
+            typeof(LoadingContentViewState),
             typeof(LatestNumbers),
-            false
+            default(LoadingContentViewState)
         );
-        public bool IsReloadShow
+        public LoadingContentViewState ViewState
         {
-            set => SetValue(IsReloadShowProperty, value);
-            get => (bool)GetValue(IsReloadShowProperty);
+            set => SetValue(ViewStateProperty, value);
+            get => (LoadingContentViewState)GetValue(ViewStateProperty);
         }
 
-        public static readonly BindableProperty RepeatCommandProperty = BindableProperty.Create(
-            nameof(RepeatCommand),
+        public static readonly BindableProperty ReloadCommandProperty = BindableProperty.Create(
+            nameof(ReloadCommand),
             typeof(ICommand),
             typeof(LoggedBlock)
         );
-        public ICommand RepeatCommand
+        public ICommand ReloadCommand
         {
-            set => SetValue(RepeatCommandProperty, value);
-            get => (ICommand)GetValue(RepeatCommandProperty);
+            set => SetValue(ReloadCommandProperty, value);
+            get => (ICommand)GetValue(ReloadCommandProperty);
         }
 
     }

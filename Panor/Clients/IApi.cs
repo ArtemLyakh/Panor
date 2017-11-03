@@ -7,6 +7,7 @@ namespace Panor.Clients
 {
     public interface IApi
     {
+        Task<Models.Auth.LoggedBlock> GetLoggedBlockInfo(CancellationToken token);
         Task<List<Models.Numbers.NumberPreview>> GetLatestNumbers(CancellationToken token);
     }
 }

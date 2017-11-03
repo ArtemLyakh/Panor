@@ -13,8 +13,6 @@ namespace Panor.ViewModels.Core
         {
             Model = new Models.Auth.LoggedBlock();
 
-            HideAll();
-
             if (App.Current.AuthService.IsLogged)
             {
                 Load();
@@ -25,10 +23,6 @@ namespace Panor.ViewModels.Core
                 if (auth.IsLogged)
                 {
                     Load();
-                }
-                else
-                {
-                    HideAll();
                 }
             });
         }
@@ -63,108 +57,44 @@ namespace Panor.ViewModels.Core
             });
         }
 
-        private bool _isReloadShow;
-        public bool IsReloadShow
+        private Views.LoadingContentViewState _viewState;
+        public Views.LoadingContentViewState ViewState
         {
-            get => _isReloadShow;
-            set => SetProperty(ref _isReloadShow, value);
-        }
-
-        private bool _isContentShow;
-        public bool IsContentShow
-        {
-            get => _isContentShow;
-            set => SetProperty(ref _isContentShow, value);
-        }
-
-        private bool _isLoadingShow;
-        public bool IsLoadingShow
-        {
-            get => _isLoadingShow;
-            set => SetProperty(ref _isLoadingShow, value);
+            get => _viewState;
+            set => SetProperty(ref _viewState, value);
         }
 
         public ICommand RepeatCommand => new Command(Load);
 
-        private void HideAll()
-        {
-            IsContentShow = false;
-            IsLoadingShow = false;
-            IsReloadShow = false;
-        }
-
         private async void Load()
         {
-            HideAll();
+            ViewState = Views.LoadingContentViewState.Loading;
 
-            IsLoadingShow = true;
+            Models.Auth.LoggedBlock res;
             try
             {
-                var res = await Send();
-                Process(res);
+                res = await App.Current.Api.GetLoggedBlockInfo(GetNewToken());
             }
             catch
             {
-                IsReloadShow = true;
-            }
-            finally
-            {
-                IsLoadingShow = false;
-            }
-        }
-
-        private async Task<(int Code, string Response)> Send()
-        {
-            (int Code, string Response) res;
-            try
-            {
-                res = await App.Current.WebClient.SendAsync("GET", new Uri(Config.Uri.ProfileUrl), GetNewToken(), null);
-            }
-            catch
-            {
-                throw new Exception();
+                ViewState = Views.LoadingContentViewState.Reload;
+                return;
             }
             finally
             {
                 ClearToken();
             }
+            ViewState = Views.LoadingContentViewState.Content;
 
-            return res;
-        }
 
-        private void Process((int Code, string Response) res)
-        {
-            switch (res.Code)
-            {
-                case 200:
-                    var success = Model.FromJson(res.Response);
-                    OnModelsJsonChange(success);
-                    return;
-                default:
-                    throw new Exception();
-            }
-        }
-
-        private void OnModelsJsonChange(bool success)
-        {
-            if (success)
-            {
-                IsReloadShow = false;
-                IsContentShow = true;
-
-                if (Model.Image != null)
-                    Image = ImageSource.FromUri(Model.Image);
-                else
-                    Image = ImageSource.FromFile("no_photo");
-
-                Fio = Model.Fio;
-                Email = Model.Email;
-            }
+            if (res.Image != null)
+                Image = ImageSource.FromUri(res.Image);
             else
-            {
-                IsContentShow = false;
-                IsReloadShow = true;
-            }
+                Image = ImageSource.FromFile("no_photo");
+
+            Fio = res.Fio;
+            Email = res.Email;
         }
+
     }
 }

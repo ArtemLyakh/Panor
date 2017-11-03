@@ -30,10 +30,8 @@
                         Name="{Binding Fio}"
                         Email="{Binding Email}"
                         Image="{Binding Image}"
-                        IsReloadShow="{Binding IsReloadShow}"
-                        IsContentShow="{Binding IsContentShow}"
-                        IsLoadingShow="{Binding IsLoadingShow}"
-                        RepeatCommand="{Binding RepeatCommand}"
+                        ViewState="{Binding ViewState}"
+                        ReloadCommand="{Binding ReloadCommand}"
                         />
                 </StackLayout>
             </ListView.Header>

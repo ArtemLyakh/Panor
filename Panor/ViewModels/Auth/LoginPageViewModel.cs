@@ -83,7 +83,7 @@ namespace Panor.ViewModels.Auth
             (int Code, string Response) res;
             try
             {
-                res = await App.Current.WebClient.SendAsync("POST", new Uri(Config.Uri.LoginUrl), GetNewToken(), Model.GetJson());
+                res = await App.Current.WebClient.SendAsync(System.Net.Http.HttpMethod.Post, new Uri(Config.Uri.LoginUrl), GetNewToken(), Model.GetJson());
             }
             catch (OperationCanceledException)
             {

@@ -2,20 +2,27 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Panor.Models.Auth;
 using Panor.Models.Numbers;
 
 namespace Panor.Clients
 {
     public class MockClient : IApi
     {
-        private static bool error = true;
+        private ApiClient Client = new ApiClient();
 
+		public Task<LoggedBlock> GetLoggedBlockInfo(CancellationToken token)
+		{
+            return Client.GetLoggedBlockInfo(token);
+		}
+
+        private bool errorGetLatestNumbers = true;
         public async Task<List<NumberPreview>> GetLatestNumbers(CancellationToken token)
         {
             await Task.Delay(5000);
 
-            if (error) {
-                error = false;
+            if (errorGetLatestNumbers) {
+                errorGetLatestNumbers = false;
                 throw new Exception("test error");
             }
 
