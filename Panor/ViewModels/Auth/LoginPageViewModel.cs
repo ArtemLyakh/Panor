@@ -50,87 +50,40 @@ namespace Panor.ViewModels.Auth
 
         private async void Login()
         {
+            var errors = Model.GetErrors().ToList();
+            if (errors.Count > 0)
+            {
+                App.Current.ToastService.Show(string.Join(Environment.NewLine, errors));
+                return;
+            }
+
             IsLoading = true;
             try
             {
-                ErrorCheck();
-                var res = await Send();
-                Process(res);
+                await App.Current.Api.Login(Model.GetJson(), GetNewToken());
             }
-            catch
+            catch (OperationCanceledException)
             {
+                return;
+            }
+            catch (Exception ex)
+            {
+                if (!string.IsNullOrWhiteSpace(ex.Message))
+                    App.Current.ToastService.Show(ex.Message);
+
                 return;
             }
             finally 
             {
+                ClearToken();
                 IsLoading = false;
             }
+
+
+            App.Current.AuthService.Authorize(Email, Password);
+            await App.Current.Navigation.PopToRoot();
         }
 
-        private void ErrorCheck()
-        {
-            var errors = Model.GetErrors().ToList();
 
-            if (errors.Count > 0)
-            {
-                App.Current.ToastService.Show(string.Join(Environment.NewLine, errors));
-                throw new Exception();
-            }
-        }
-
-        private async Task<(int Code, string Response)> Send()
-        {
-            (int Code, string Response) res;
-            try
-            {
-                res = await App.Current.WebClient.SendAsync(System.Net.Http.HttpMethod.Post, new Uri(Config.Uri.LoginUrl), GetNewToken(), Model.GetJson());
-            }
-            catch (OperationCanceledException)
-            {
-                throw new Exception();
-            }
-            catch (TimeoutException)
-            {
-                App.Current.ToastService.Show("Превышен интервал запроса");
-                throw new Exception();
-            }
-            catch
-            {
-                App.Current.ToastService.Show("Ошибка");
-                throw new Exception();
-            }
-            finally
-            {
-                ClearToken();
-            }
-
-            return res;
-        }
-
-        private void Process((int Code, string Response) res)
-        {
-            switch (res.Code)
-            {
-                case 200:
-                    App.Current.AuthService.Authorize(Email, Password);
-                    App.Current.Navigation.PopToRoot();
-                    return;
-                case 400: case 401:
-                    var error = Json.Error.ParseJson(res.Response);
-                    if (error == null)
-                    {
-                        App.Current.ToastService.Show("Ошибка ответа сервера");
-                        return;
-                    }
-                    else
-                    {
-                        App.Current.ToastService.Show(error.message);
-                        return;
-                    }
-                default:
-                    App.Current.ToastService.Show("Ошибка ответа сервера");
-                    return;
-            }
-        }
     }
 }

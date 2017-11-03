@@ -85,5 +85,14 @@ namespace Panor.Clients
             };
         }
 
+        public Task Login(string content, CancellationToken token)
+        {
+            return Client.Login(content, token);
+        }
+
+        public Task Register(string content, CancellationToken token)
+        {
+            return Client.Register(content, token);
+        }
     }
 }
