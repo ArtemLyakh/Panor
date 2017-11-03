@@ -8,9 +8,16 @@ namespace Panor.Clients
 {
     public class MockClient : IApi
     {
+        private static bool error = true;
+
         public async Task<List<NumberPreview>> GetLatestNumbers(CancellationToken token)
         {
-            await Task.Delay(3000);
+            await Task.Delay(5000);
+
+            if (error) {
+                error = false;
+                throw new Exception("test error");
+            }
 
             return new List<Models.Numbers.NumberPreview>()
             {

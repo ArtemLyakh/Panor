@@ -47,6 +47,9 @@
                     VerticalTextAlignment="Start"
                     HorizontalTextAlignment="End"
                     >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={x:Reference element}, Path=MoreCommand}" />
+                    </Label.GestureRecognizers>
                 </Label>
                 <ScrollView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                     Orientation="Horizontal"
@@ -81,7 +84,6 @@
             <StackLayout AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                 IsVisible="false"
-                BackgroundColor="Blue"
                 >
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout"

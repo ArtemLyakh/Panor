@@ -59,6 +59,17 @@ namespace Panor.Views
             get => (LoadingContentViewState)GetValue(ViewStateProperty);
         }
 
+        public static readonly BindableProperty ReloadCommandProperty = BindableProperty.Create(
+            nameof(ReloadCommand),
+            typeof(ICommand),
+            typeof(LatestNumbers)
+        );
+        public ICommand ReloadCommand
+        {
+            set => SetValue(ReloadCommandProperty, value);
+            get => (ICommand)GetValue(ReloadCommandProperty);
+        }
+
 
         private static void OnNumberChanged(BindableObject bindable, object oldValue, object newValue)
         {

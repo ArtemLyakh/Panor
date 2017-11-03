@@ -18,6 +18,8 @@
                     Actions="{Binding Actions}"
                     Numbers="{Binding Numbers}"
                     ViewState="{Binding ViewState}"
+                    ReloadCommand="{Binding ReloadCommand}"
+                    MoreCommand="{Binding MoreCommand}"
                     />
             </StackLayout>
         </ScrollView>
