@@ -7,11 +7,10 @@
     Title="ПАНОРАМА"
 
     BackgroundColor="{StaticResource bgColor}"
-    Padding="0, 20"
     >
 	<ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="20">
+            <StackLayout Spacing="20" Padding="0, 20">
                 <!-- BindingContext = LatestNumbersViewModel -->
                 <views:LatestNumbers x:Name="latestNumbers"
                     Margin="10, 0" 
