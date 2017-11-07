@@ -177,6 +177,12 @@
     <AndroidResource Include="Resources\drawable-xhdpi\no_photo.png" />
     <AndroidResource Include="Resources\drawable-hdpi\no_photo.png" />
     <AndroidResource Include="Resources\drawable-mdpi\no_photo.png" />
+    <AndroidResource Include="Resources\layout\dropdown_item.xml" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\dropdown_btn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\dropdown_btn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\dropdown_btn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\dropdown_btn.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\dropdown_btn.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dependencies\" />

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using Android.Graphics;
 using Android.Widget;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android.AppCompat;
@@ -8,7 +10,7 @@ namespace Panor.Droid.Renderers
 {
     public class DropdownRenderer : ViewRenderer<Views.Dropdown, Spinner>
     {
-        private Spinner spinner;
+        private Spinner Spinner { get; set; }
 
         protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<Views.Dropdown> e)
         {
@@ -22,11 +24,13 @@ namespace Panor.Droid.Renderers
             if (e.OldElement != null)
             {
                 //unsubscribe
+                Spinner.ItemSelected -= Spinner_ItemSelected;
             }
 
             if (e.NewElement != null)
             {
                 //subscribe
+                Spinner.ItemSelected += Spinner_ItemSelected;
             }
         }
 
@@ -37,34 +41,55 @@ namespace Panor.Droid.Renderers
             };
 
             var spinner = new Spinner(Android.App.Application.Context);
-            var adapter = new NarrowAdapter(Android.App.Application.Context, Android.Resource.Layout.SimpleSpinnerItem, items);
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spinner.Adapter = adapter;
+			spinner.Background = Android.App.Application.Context.GetDrawable(Resource.Drawable.dropdown_btn);
+			spinner.SetPopupBackgroundDrawable(new Android.Graphics.Drawables.ColorDrawable(Android.Graphics.Color.White));
 
-            spinner.Background = Android.App.Application.Context.GetDrawable(Resource.Drawable.druzd);
+            spinner.Adapter = GetAdapter(items);
 
-            this.spinner = spinner;
+            this.Spinner = spinner;
 
-            SetNativeControl(this.spinner);
+            SetNativeControl(this.Spinner);
         }
 
-        public class NarrowAdapter : ArrayAdapter<string>
+        void Spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            public NarrowAdapter(Android.Content.Context context, int textViewResourceId, string[] objects) 
-                : base(context, textViewResourceId, objects)
-            {
-                
+            if (e.Position != 0) {
+                var q = 1;
             }
 
-            public override Android.Views.View GetView(int position, Android.Views.View convertView, Android.Views.ViewGroup parent)
+            ((Spinner)sender).SetSelection(0);
+        }
+
+        private NarrowAdapter GetAdapter(string[] items)
+        {
+            var adapter = new NarrowAdapter(Android.App.Application.Context, Android.Resource.Layout.SimpleSpinnerItem, items);
+            adapter.SetDropDownViewResource(Resource.Layout.dropdown_item);
+
+            return adapter;
+        }
+    }
+
+    public class NarrowAdapter : ArrayAdapter<string>
+    {
+        public NarrowAdapter(Android.Content.Context context, int textViewResourceId, string[] objects)
+            : base(context, textViewResourceId, new string[] {string.Empty}.Concat(objects).ToArray() )
+        {
+
+        }
+
+        public override Android.Views.View GetDropDownView(int position, Android.Views.View convertView, Android.Views.ViewGroup parent)
+        {
+            if (position == 0)
             {
-                var view = base.GetView(position, convertView, parent);
-
-                var textView = (TextView)view.FindViewById(Android.Resource.Id.Text1);
-                textView.Text = string.Empty;
-
-                return view;
+                var tv = new TextView(Context);
+                tv.Visibility = Android.Views.ViewStates.Gone;
+                tv.SetHeight(0);
+                return tv;
+            } else 
+            {
+                return base.GetDropDownView(position, null, parent);
             }
         }
     }
+
 }
