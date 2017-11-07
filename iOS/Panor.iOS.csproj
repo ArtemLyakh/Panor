@@ -161,6 +161,9 @@
     <BundleResource Include="Resources\no_photo%403x.png" />
     <BundleResource Include="Resources\no_photo%402x.png" />
     <BundleResource Include="Resources\no_photo.png" />
+    <BundleResource Include="Resources\dropdown_btn%403x.png" />
+    <BundleResource Include="Resources\dropdown_btn%402x.png" />
+    <BundleResource Include="Resources\dropdown_btn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.38779\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.38779\build\netstandard1.0\Xamarin.Forms.targets')" />

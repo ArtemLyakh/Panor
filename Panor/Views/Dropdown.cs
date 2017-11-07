@@ -18,5 +18,18 @@ namespace Panor.Views
             get => (IList<(string, ICommand)>)GetValue(CommandsProperty);
         }
 
+
+        public Dropdown()
+        {
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                CreateIOS();
+            }
+        }
+
+        private void CreateIOS()
+        {
+            
+        }
     }
 }
