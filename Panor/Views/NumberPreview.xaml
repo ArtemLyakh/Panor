@@ -2,6 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ffi="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:views="clr-namespace:Panor.Views;"
     x:Class="Panor.Views.NumberPreview"
     x:Name="element"
 
@@ -40,12 +41,8 @@
                 FontSize="14"
                 Margin="1"
                 />
-            
-            <BoxView Grid.Row="3" Grid.Column="1" BackgroundColor="Purple">
-                <BoxView.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Handle_Tapped" />
-                </BoxView.GestureRecognizers>
-            </BoxView>
+
+            <views:Dropdown Grid.Row="3" Grid.Column="1" Commands="{Binding Source={x:Reference element}, Path=CommandList}" />
 
             <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
                 Text="{Binding Source={x:Reference element}, Path=Price, StringFormat='{0} &#x20BD;'}"

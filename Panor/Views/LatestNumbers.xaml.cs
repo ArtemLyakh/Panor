@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -89,7 +90,11 @@ namespace Panor.Views
                     visual.Image = ImageSource.FromUri(number.Image);
                     visual.Name = number.Name;
                     visual.Price = number.Price;
-                    visual.CommandList = element.Actions;
+                    visual.CommandList = element.Actions.Select(i => (i.Item1, new Command(() =>
+                    {
+                        if (i.Item2 != null && i.Item2.CanExecute(number.Id))
+                            i.Item2.Execute(number.Id);
+                    }) as ICommand)).ToList();
 
                     element.ElementsStack.Children.Add(visual);
                 }

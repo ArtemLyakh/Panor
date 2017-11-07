@@ -72,13 +72,13 @@ namespace Panor.Views
 
         public static readonly BindableProperty CommandListProperty = BindableProperty.Create(
             nameof(CommandList),
-            typeof(IEnumerable<(string, ICommand)>),
+            typeof(IList<(string, ICommand)>),
             typeof(NumberPreview)
         );
-        public IEnumerable<(string, ICommand)> CommandList
+        public IList<(string, ICommand)> CommandList
         {
             set => SetValue(CommandListProperty, value);
-            get => (IEnumerable<(string, ICommand)>)GetValue(CommandListProperty);
+            get => (IList<(string, ICommand)>)GetValue(CommandListProperty);
         }
 
         async void Handle_Tapped(object sender, System.EventArgs e)

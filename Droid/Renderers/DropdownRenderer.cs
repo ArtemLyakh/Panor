@@ -25,26 +25,41 @@ namespace Panor.Droid.Renderers
             {
                 //unsubscribe
                 Spinner.ItemSelected -= Spinner_ItemSelected;
+
+                e.OldElement.PropertyChanged -= ControlPropertyChanged;
             }
 
             if (e.NewElement != null)
             {
                 //subscribe
                 Spinner.ItemSelected += Spinner_ItemSelected;
+
+                e.NewElement.PropertyChanged += ControlPropertyChanged;
+            }
+        }
+
+
+
+        void ControlPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (Spinner == null) return;
+
+            if (e.PropertyName == Views.Dropdown.CommandsProperty.PropertyName) 
+            {
+                Spinner.Adapter = GetAdapter(Element.Commands.Select(i => i.Text).ToArray());
             }
         }
 
         private void CreateSpinner()
         {
-            var items = new string[] {
-                "big long string 1", "var2", "var3"
-            };
-
             var spinner = new Spinner(Android.App.Application.Context);
 			spinner.Background = Android.App.Application.Context.GetDrawable(Resource.Drawable.dropdown_btn);
 			spinner.SetPopupBackgroundDrawable(new Android.Graphics.Drawables.ColorDrawable(Android.Graphics.Color.White));
 
-            spinner.Adapter = GetAdapter(items);
+            if (Element != null && Element.Commands != null)
+                spinner.Adapter = GetAdapter(Element.Commands.Select(i => i.Text).ToArray());
+            else
+                spinner.Adapter = GetAdapter(new string[0]);
 
             this.Spinner = spinner;
 
@@ -54,7 +69,14 @@ namespace Panor.Droid.Renderers
         void Spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             if (e.Position != 0) {
-                var q = 1;
+                var i = e.Position - 1;
+
+                if (Element != null && Element.Commands != null && i < Element.Commands.Count) 
+                {
+                    var command = Element.Commands[i].Command;
+                    if (command != null && command.CanExecute(null))
+                        command.Execute(null);
+                }
             }
 
             ((Spinner)sender).SetSelection(0);
@@ -72,7 +94,7 @@ namespace Panor.Droid.Renderers
     public class NarrowAdapter : ArrayAdapter<string>
     {
         public NarrowAdapter(Android.Content.Context context, int textViewResourceId, string[] objects)
-            : base(context, textViewResourceId, new string[] {string.Empty}.Concat(objects).ToArray() )
+            : base(context, textViewResourceId, new string[] { string.Empty }.Concat(objects).ToArray() )
         {
 
         }
@@ -85,7 +107,8 @@ namespace Panor.Droid.Renderers
                 tv.Visibility = Android.Views.ViewStates.Gone;
                 tv.SetHeight(0);
                 return tv;
-            } else 
+            } 
+            else 
             {
                 return base.GetDropDownView(position, null, parent);
             }

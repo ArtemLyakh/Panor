@@ -1,12 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Panor.Views
 {
     public class Dropdown : View
     {
-        public Dropdown()
+        public static readonly BindableProperty CommandsProperty = BindableProperty.Create(
+            nameof(Commands),
+            typeof(IList<(string, ICommand)>),
+            typeof(Dropdown)
+        );
+        public IList<(string Text, ICommand Command)> Commands
         {
+            set => SetValue(CommandsProperty, value);
+            get => (IList<(string, ICommand)>)GetValue(CommandsProperty);
         }
+
     }
 }
