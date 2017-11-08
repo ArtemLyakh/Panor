@@ -12,5 +12,6 @@ namespace Panor.Clients
 
         Task<Models.Auth.LoggedBlock> GetLoggedBlockInfo(CancellationToken token);
         Task<List<Models.Numbers.NumberPreview>> GetLatestNumbers(CancellationToken token);
+        Task<List<Models.Banners.MainBanner>> GetMainBanner(CancellationToken token);
     }
 }

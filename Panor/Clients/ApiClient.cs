@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Panor.Models.Auth;
+using Panor.Models.Banners;
 using Panor.Models.Numbers;
 
 namespace Panor.Clients
@@ -110,6 +111,11 @@ namespace Panor.Clients
                 default:
                     throw new Exception("Ошибка ответа сервера");
             }
+        }
+
+        public Task<List<MainBanner>> GetMainBanner(CancellationToken token)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -65,17 +65,9 @@ namespace Panor.ViewModels.Start
             {
                 res = await App.Current.Api.GetLatestNumbers(GetNewToken());
             }
-            catch (OperationCanceledException)
+            catch
             {
-                return;
-            }
-            catch (Exception ex)
-            {
-                if (!string.IsNullOrWhiteSpace(ex.Message))
-                    App.Current.ToastService.Show(ex.Message);
-
                 ViewState = Views.LoadingContentViewState.Reload;
-
                 return;
             }
             finally

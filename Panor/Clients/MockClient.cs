@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Panor.Models.Auth;
+using Panor.Models.Banners;
 using Panor.Models.Numbers;
 
 namespace Panor.Clients
@@ -93,6 +94,42 @@ namespace Panor.Clients
         public Task Register(string content, CancellationToken token)
         {
             return Client.Register(content, token);
+        }
+
+        private bool errorGetMainBanner = true;
+        public async Task<List<MainBanner>> GetMainBanner(CancellationToken token)
+        {
+            await Task.Delay(3000);
+
+            if (errorGetMainBanner)
+            {
+                errorGetMainBanner = false;
+                throw new Exception();
+            }
+
+            return new List<Models.Banners.MainBanner>()
+            {
+                new Models.Banners.MainBanner()
+                {
+                    Image = new Uri("http://panor.ru/bitrix/templates/panor2016/img/slider/slide-bg03.jpg"),
+                    Url = new Uri("http://panor.ru")
+                },
+                new Models.Banners.MainBanner()
+                {
+                    Image = new Uri("http://panor.ru/bitrix/templates/panor2016/img/slider/slide-bg03.jpg"),
+                    Url = new Uri("http://panor.ru")
+                },
+                new Models.Banners.MainBanner()
+                {
+                    Image = new Uri("https://www.google.ru/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"),
+                    Url = new Uri("http://panor.ru")
+                },
+                new Models.Banners.MainBanner()
+                {
+                    Image = new Uri("http://panor.ru/bitrix/templates/panor2016/img/slider/slide-bg03.jpg"),
+                    Url = new Uri("http://panor.ru")
+                }
+            };
         }
     }
 }

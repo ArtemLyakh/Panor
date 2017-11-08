@@ -19,7 +19,7 @@
     <AbsoluteLayout>
 
         <Grid RowSpacing="0"
-            IsVisible="false"
+            Opacity="0"
             AbsoluteLayout.LayoutFlags="All"
             AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
             >
@@ -35,14 +35,14 @@
                     Binding="{Binding Source={x:Reference element}, Path=ViewState}"
                     Value="{x:Static views:LoadingContentViewState.Content}"
                     >
-                    <Setter Property="IsVisible" Value="true" />
+                    <Setter Property="Opacity" Value="1" />
                 </DataTrigger>
             </Grid.Triggers> 
             
             <control:CarouselView x:Name="carousel"
                 ItemsSource="{Binding Source={x:Reference element}, Path=Data}"
                 >
-               <control:CarouselView.ItemTemplate>
+                <control:CarouselView.ItemTemplate>
                    <DataTemplate>
                         <ffi:CachedImage Source="{Binding Converter={StaticResource UriToImageSourceConvertor}, Path=Image}" 
                             HorizontalOptions="FillAndExpand"
