@@ -75,6 +75,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoadingViewLoader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoadingViewReload.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -152,6 +160,12 @@
     <Compile Include="Views\Dropdown.cs" />
     <Compile Include="Views\MainBanner.xaml.cs">
       <DependentUpon>MainBanner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoadingViewLoader.xaml.cs">
+      <DependentUpon>LoadingViewLoader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoadingViewReload.xaml.cs">
+      <DependentUpon>LoadingViewReload.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

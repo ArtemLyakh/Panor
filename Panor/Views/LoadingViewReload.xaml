@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Panor.Views;"
+    x:Class="Panor.Views.LoadingViewReload"
+    x:Name="element"
+
+    IsVisible="false"
+    >
+    <ContentView.Triggers>
+        <DataTrigger TargetType="ContentView"
+            Binding="{Binding Source={x:Reference element}, Path=ViewState}"
+            Value="{x:Static views:LoadingContentViewState.Reload}"
+            >
+            <Setter Property="IsVisible" Value="true" />
+        </DataTrigger>
+    </ContentView.Triggers>
+    <ContentView.Content>
+        <Label Text="Повторить"
+            TextColor="{StaticResource mainColor}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+            FontSize="16"
+            >
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={x:Reference element}, Path=ReloadCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+    </ContentView.Content>
+</ContentView>
