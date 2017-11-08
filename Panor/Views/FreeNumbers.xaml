@@ -2,6 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:views="clr-namespace:Panor.Views;"
+    xmlns:templates="clr-namespace:Panor.Views.Templates"
     x:Class="Panor.Views.FreeNumbers"
     x:Name="element"
     
@@ -43,29 +44,10 @@
             >
             <views:HorizontalScrollView.DataTemplate>
                 <DataTemplate>
-                    <Frame Padding="0" WidthRequest="200">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="10*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="3*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-                            <Image Grid.Row="0"
-                                Source="{Binding Image}"
-                                />
-
-                            <Label Grid.Row="1"
-                                Text="{Binding Num}"
-                                />
-                            <Label Grid.Row="2"
-                                Text="{Binding Name}"
-                                />
-                        </Grid>
-                    </Frame>
+                    <templates:MainPageFreeNumber 
+                        Title="qweqwe"
+                        Text="zxczxc"
+                        />
                 </DataTemplate>
             </views:HorizontalScrollView.DataTemplate>
         </views:HorizontalScrollView>

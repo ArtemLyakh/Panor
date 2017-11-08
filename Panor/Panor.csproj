@@ -87,6 +87,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Templates\MainPageFreeNumber.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -181,6 +185,9 @@
     </Compile>
     <Compile Include="Models\Numbers\Number.cs" />
     <Compile Include="ViewModels\Start\FreeNumbersViewModel.cs" />
+    <Compile Include="Views\Templates\MainPageFreeNumber.xaml.cs">
+      <DependentUpon>MainPageFreeNumber.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading">
@@ -240,6 +247,7 @@
     <Folder Include="Models\Numbers\" />
     <Folder Include="Clients\" />
     <Folder Include="Models\Banners\" />
+    <Folder Include="Views\Templates\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
