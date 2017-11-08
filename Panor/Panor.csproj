@@ -71,6 +71,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainBanner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -146,6 +150,9 @@
     <Compile Include="Clients\MockClient.cs" />
     <Compile Include="Views\LoadingContentViewState.cs" />
     <Compile Include="Views\Dropdown.cs" />
+    <Compile Include="Views\MainBanner.xaml.cs">
+      <DependentUpon>MainBanner.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading">
