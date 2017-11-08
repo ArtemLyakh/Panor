@@ -31,7 +31,6 @@
 
             <ffi:CachedImage Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                 Source="{Binding Source={x:Reference element}, Path=Image}"
-                DownsampleToViewSize="true"
                 Aspect="AspectFit"
                 />
 

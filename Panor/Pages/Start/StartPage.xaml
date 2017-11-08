@@ -21,12 +21,13 @@
                     MoreCommand="{Binding MoreCommand}"
                     />
 
-                <views:Dropdown 
-                    BackgroundColor="Fuchsia"
-                    WidthRequest="40"
-                    HeightRequest="20"
-                    HorizontalOptions="Center"
+                <!-- BindingContext = MainBannerViewModel -->
+                <views:MainBanner x:Name="mainBanner"
+                    ViewState="{Binding ViewState}"
+                    ReloadCommand="{Binding ReloadCommand}"
+                    Data="{Binding Data}"
                     />
+                
             </StackLayout>
         </ScrollView>
 	</ContentPage.Content>

@@ -1,9 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+    xmlns:views="clr-namespace:Panor.Views;"
+    xmlns:conv="clr-namespace:Panor.Converters"
+    xmlns:ffi="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     x:Class="Panor.Views.MainBanner"
+    x:Name="element"
+    
+    HeightRequest="270"
     >
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <conv:UriToImageSourceConvertor x:Key="UriToImageSourceConvertor" />
+            <conv:UriToOpenCommandConverter x:Key="UriToOpenCommandConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
     <AbsoluteLayout>
 
+        <Grid RowSpacing="0"
+            IsVisible="false"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.Triggers>
+                <DataTrigger TargetType="Grid"
+                    Binding="{Binding Source={x:Reference element}, Path=ViewState}"
+                    Value="{x:Static views:LoadingContentViewState.Content}"
+                    >
+                    <Setter Property="IsVisible" Value="true" />
+                </DataTrigger>
+            </Grid.Triggers> 
+            
+            <control:CarouselView x:Name="carousel"
+                ItemsSource="{Binding Source={x:Reference element}, Path=Data}"
+                >
+               <control:CarouselView.ItemTemplate>
+                   <DataTemplate>
+                        <ffi:CachedImage Source="{Binding Converter={StaticResource UriToImageSourceConvertor}, Path=Image}" 
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            Aspect="AspectFill"
+                            >
+                            <ffi:CachedImage.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Converter={StaticResource UriToOpenCommandConverter}, Path=Url}" />
+                            </ffi:CachedImage.GestureRecognizers>                       
+                        </ffi:CachedImage>
+                   </DataTemplate>
+               </control:CarouselView.ItemTemplate>
+            </control:CarouselView>
+
+            <ContentView Grid.Row="1">
+                <StackLayout x:Name="carouselIndicators"
+                    Orientation="Horizontal"
+                    Spacing="8"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    />
+            </ContentView>
+
+        </Grid>
+        
+
+        
+        <views:LoadingViewLoader ViewState="{Binding Source={x:Reference element}, Path=ViewState}"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            />
+
+        <views:LoadingViewReload ViewState="{Binding Source={x:Reference element}, Path=ViewState}"
+            ReloadCommand="{Binding Source={x:Reference element}, Path=ReloadCommand}"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            />
+        
     </AbsoluteLayout>
 </ContentView>

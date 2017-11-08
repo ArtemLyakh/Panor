@@ -167,6 +167,10 @@
     <Compile Include="Views\LoadingViewReload.xaml.cs">
       <DependentUpon>LoadingViewReload.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Banners\MainBanner.cs" />
+    <Compile Include="ViewModels\Start\MainBannerViewModel.cs" />
+    <Compile Include="Converters\UriToImageSourceConvertor.cs" />
+    <Compile Include="Converters\UriToOpenCommandConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading">
@@ -225,6 +229,7 @@
     <Folder Include="ViewModels\Start\" />
     <Folder Include="Models\Numbers\" />
     <Folder Include="Clients\" />
+    <Folder Include="Models\Banners\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

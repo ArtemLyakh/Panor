@@ -11,16 +11,16 @@ namespace Panor.Pages.Start
         {
             InitializeComponent();
 
-			var latestNumbersModel = new ViewModels.Start.LatestNumbersViewModel();
-            var model = new ViewModels.Start.StartPageViewModel()
+            latestNumbers.BindingContext = new ViewModels.Start.LatestNumbersViewModel();
+            mainBanner.BindingContext = new ViewModels.Start.MainBannerViewModel();
+
+            Model = new ViewModels.Start.StartPageViewModel()
             {
                 Children = {
-                    latestNumbersModel
+                    (ViewModels.BaseViewModel)latestNumbers.BindingContext,
+                    (ViewModels.BaseViewModel)mainBanner.BindingContext
                 }
             };
-
-            Model = model;
-            latestNumbers.BindingContext = latestNumbersModel;
         }
     }
 }

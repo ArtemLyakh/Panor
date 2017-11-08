@@ -58,12 +58,12 @@
                 </ScrollView>
             </Grid>
 
-            <views:LoadingViewLoader ViewState="{Binding ViewState}"
+            <views:LoadingViewLoader ViewState="{Binding Source={x:Reference element}, Path=ViewState}"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                 />
 
-            <views:LoadingViewReload ViewState="{Binding ViewState}"
+            <views:LoadingViewReload ViewState="{Binding Source={x:Reference element}, Path=ViewState}"
                 ReloadCommand="{Binding ReloadCommand}"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
