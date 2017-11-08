@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:views="clr-namespace:Panor.Views;"
+    x:Class="Panor.Views.FreeNumbers"
+    x:Name="element"
+    
+    HeightRequest="280"
+    >
+	<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0"
+            Text="Выпуски в свободном доступе"
+            TextColor="Black"
+            FontSize="16"
+            FontAttributes="Bold"
+            VerticalTextAlignment="Start"
+            HorizontalTextAlignment="Start"
+            />
+        <Label Grid.Row="0" Grid.Column="1"
+            Text="ЕЩЕ"
+            TextColor="{StaticResource mainColor}"
+            FontSize="14"
+            VerticalTextAlignment="Start"
+            HorizontalTextAlignment="End"
+            >
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={x:Reference element}, Path=MoreCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <views:HorizontalScrollView Grid.Row="1" Grid.ColumnSpan="2"
+            ContentPadding="10" Spacing="10"
+            ItemSource="{Binding Source={x:Reference element}, Path=ItemSource}"
+            >
+            <views:HorizontalScrollView.DataTemplate>
+                <DataTemplate>
+                    <Frame Padding="0" WidthRequest="200">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="3*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Row="0"
+                                Source="{Binding Image}"
+                                />
+
+                            <Label Grid.Row="1"
+                                Text="{Binding Num}"
+                                />
+                            <Label Grid.Row="2"
+                                Text="{Binding Name}"
+                                />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </views:HorizontalScrollView.DataTemplate>
+        </views:HorizontalScrollView>
+        
+        
+    </Grid>
+</ContentView>

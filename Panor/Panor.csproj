@@ -83,6 +83,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FreeNumbers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -171,6 +175,12 @@
     <Compile Include="ViewModels\Start\MainBannerViewModel.cs" />
     <Compile Include="Converters\UriToImageSourceConvertor.cs" />
     <Compile Include="Converters\UriToOpenCommandConverter.cs" />
+    <Compile Include="Views\HorizontalScrollView.cs" />
+    <Compile Include="Views\FreeNumbers.xaml.cs">
+      <DependentUpon>FreeNumbers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Numbers\Number.cs" />
+    <Compile Include="ViewModels\Start\FreeNumbersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading">

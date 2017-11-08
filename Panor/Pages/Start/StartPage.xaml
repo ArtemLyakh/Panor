@@ -27,6 +27,12 @@
                     ReloadCommand="{Binding ReloadCommand}"
                     Data="{Binding Data}"
                     />
+
+                <!-- BindingContext = FreeNumbersViewModel -->
+                <views:FreeNumbers x:Name="freeNumbers"
+                    ViewState="Content"
+                    ItemSource="{Binding ItemSource}"
+                    />
                 
             </StackLayout>
         </ScrollView>
